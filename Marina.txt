@@ -1,1 +1,31 @@
-ola ke ase
+Principal
+	- Application.java (Main)
+	- Seguridad Web
+Controladores
+	- Admin (permisos y dar de alta y de baja campanias)*
+	- Usuario * (Perfil + creara campanias con posteo con fecha de entrega)
+	- Concursante * (buscar fechas y subir la entrega (testimonio)
+	- Foto (campanias y FPerfil(U) + testimonio(C))
+	- Posteo (campanias(U) + testimonios(C))
+Entidades
+	- Admin (Persmisos + alta y baja)
+	- Usuario (Nombre, contacto, foto, campanias)
+	- Concursante (Foto + Posteo)
+	- Foto ()
+	- Posteo (Campanias(U), Testimonios(C))
+Enumeracion
+	- Rol (User - Admin)
+Excepciones
+	- Mi Excepcion
+Repositorios
+	- Admin  
+	- Usuario
+	- Concursante
+	- Foto
+	- Posteo
+Servicios
+	- Admin
+	- Usuario
+	- Concursante
+	- Foto
+	- Posteo
