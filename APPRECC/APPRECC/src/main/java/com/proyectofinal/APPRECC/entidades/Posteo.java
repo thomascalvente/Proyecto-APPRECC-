@@ -10,8 +10,8 @@ import java.util.Set;
 public class Posteo {
 
     @Id
-    private Long rolId;
-    private String rolNombre;
+    private Long PostId;
+    private String PostNombre;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "Posteo")
     private Set <UsuarioPosteo> usuarioPost = new HashSet<>();
@@ -20,32 +20,32 @@ public class Posteo {
 
     }
 
-    public Posteo(Long rolId, String rolNombre) {
-        this.rolId = rolId;
-        this.rolNombre = rolNombre;
+    public Posteo(Long PostId, String PostNombre) {
+        this.PostId = PostId;
+        this.PostNombre = PostNombre;
     }
 
-    public Long getRolId() {
-        return rolId;
+    public Long getPostId() {
+        return PostId;
     }
 
-    public void setRolId(Long rolId) {
-        this.rolId = rolId;
+    public void setPostId(Long PostId) {
+        this.PostId = PostId;
     }
 
     public String getRolNombre() {
-        return rolNombre;
+        return PostNombre;
     }
 
-    public void setRolNombre(String rolNombre) {
-        this.rolNombre = rolNombre;
+    public void setPostNombre(String PostNombre) {
+        this.PostNombre = PostNombre;
     }
 
-    public Set<UsuarioPosteo> getUsuarioRoles() {
+    public Set<UsuarioPosteo> getUsuarioPost() {
         return usuarioPost;
     }
 
-    public void setUsuarioRoles(Set<UsuarioPosteo> usuarioRoles) {
-        this.usuarioPost = usuarioRoles;
+    public void setUsuarioPost(Set<UsuarioPosteo> usuarioPost) {
+        this.usuarioPost = usuarioPost;
     }
 }

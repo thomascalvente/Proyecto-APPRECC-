@@ -16,11 +16,11 @@ public class UsuarioPosteo {
     @ManyToOne
     private Posteo Posteo;
 
-    public Long getUsuarioRolId() {
+    public Long getUsuarioPosteoId() {
         return usuarioPosteoId;
     }
 
-    public void setUsuarioRolId(Long usuarioRolId) {
+    public void setUsuarioPosteoId(Long usuarioPosteoId) {
         this.usuarioPosteoId = usuarioPosteoId;
     }
 
@@ -32,11 +32,11 @@ public class UsuarioPosteo {
         this.usuario = usuario;
     }
 
-    public Posteo getRol() {
+    public Posteo getPosteo() {
         return Posteo;
     }
 
-    public void setRol(Posteo Posteo) {
+    public void setPosteo(Posteo Posteo) {
         this.Posteo = Posteo;
     }
 }
