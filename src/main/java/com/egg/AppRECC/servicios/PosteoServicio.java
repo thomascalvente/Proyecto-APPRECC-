@@ -9,6 +9,7 @@ import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.repositorios.PosteoRepositorio;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,7 +44,7 @@ public class PosteoServicio {
         
         posteo.setTitulo(titulo);
         posteo.setCuerpo(cuerpo);
-        posteo.setFecha(new Date());
+        posteo.setFecha(LocalDate.now());
         
         posteorepositorio.save(posteo);
     }

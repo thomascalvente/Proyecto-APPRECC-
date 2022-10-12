@@ -5,6 +5,7 @@
  */
 package com.egg.AppRECC.entidades;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,8 +34,7 @@ public class Posteo {
     private String imagen;
     
     
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private LocalDate fecha;
 
     public Posteo() {
     }  
@@ -71,11 +71,11 @@ public class Posteo {
         this.imagen = imagen;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
     
