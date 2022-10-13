@@ -1,0 +1,7 @@
+com\egg\AppRECC\excepciones\MiException.class
+com\egg\AppRECC\controladores\PortalControlador.class
+com\egg\AppRECC\servicios\PosteoServicio.class
+com\egg\AppRECC\controladores\PosteoControlador.class
+com\egg\AppRECC\entidades\Posteo.class
+com\egg\AppRECC\repositorios\PosteoRepositorio.class
+com\egg\AppRECC\AppReccApplication.class
