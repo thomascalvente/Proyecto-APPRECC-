@@ -18,17 +18,27 @@ public class UsuarioControlador {
     @Autowired
     private UsuarioServicio servicio;
 
-   @GetMapping("/register")
+    @GetMapping({"/usuarios","/"})
+    public String listarUsuario(Model modelo){
+        modelo.addAttribute("usuarios", servicio.listarTodosLosUsuarios());
+        return "usuarios";
+    }
+
+   @GetMapping("usuarios/register")
     public String crearUsuarioFormulario(Model modelo) {
         Usuario usuario = new Usuario();
         modelo.addAttribute("usuario", usuario);
         return "register";
    }
+    @GetMapping({"/usuarios/login"})
+    public String ingresarUsuario(Model modelo){
+        return "login";
+    }
     
-    @PostMapping("login")
+    @PostMapping("/usuarios")
     public String guardarUsuario(@ModelAttribute("usuario") Usuario usuario) {
         servicio.guardarUsuario(usuario);
-        return "redirect:/login";
+        return "redirect:/usuarios";
 
     }
 }

@@ -1,5 +1,6 @@
 package com.egg.AppRECC;
 
+import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.repositorios.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,13 +23,12 @@ public class AppReccApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-	/*
-	 Usuario usuario1 = new Usuario("Diego","Reartes","Reartes17dieg@gmail.com");
+
+	/* Usuario usuario1 = new Usuario("Diego","Reartes","Reartes17dieg@gmail.com");
 	 repositorio.save(usuario1);
 
 	 Usuario usuario2 = new Usuario("Celeste","Gonzalez","celeste@gmail.com");
-	 repositorio.save(usuario2);
-	 */
+	 repositorio.save(usuario2);*/
     }
 
 }
