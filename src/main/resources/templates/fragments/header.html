@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
-            <img src="/img/egg.png" class="icono-inicial" width="40"/>
+            <img src="/img/mundo.png" class="icono-inicial" width="40"/>
 
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -12,8 +12,8 @@
                     <div class="desplegable">
                         <a href="#" class="nav-link px-2 text-white nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">¿Quienes somos?</a>
                         <ul class="fuente-menu-desplegable links" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item nav-link px-2 text-white" href="#">a</a></li>
-                            <li><a class="dropdown-item nav-link px-2 text-white" href="#">a</a></li>
+                            <li><a class="dropdown-item nav-link px-2 text-white" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item nav-link px-2 text-white" href="#">Editar Perfil</a></li>
                             <li><a class="dropdown-item nav-link px-2 text-white" href="#">a</a></li>
                             <li><a class="dropdown-item nav-link px-2 text-white" href="#">a</a></li>
                             <li><a class="dropdown-item nav-link px-2 text-white" href="#">a</a></li>
@@ -35,10 +35,10 @@
                     </div>
                 </li>
             </ul>
-<!--
+
             <div class="text-end">
-                <a class="btn btn-outline-light fw-bolder" th:if="${session.usuariosession == null}" th:href="@{/login}">Ingresar</a>
-                <a class="btn btn-outline-light fw-bolder" th:if="${session.usuariosession == null}" th:href="@{/registrar}">Registrarse</a>
+                <a class="btn btn-outline-light fw-bolder"  th:href="@{/login}">Ingresar</a>
+                <a class="btn btn-outline-light fw-bolder"  th:href="@{/register}"> Registrarse </a>
             </div>
 
             <div class="m-0" th:if="${session.usuariosession != null}">
@@ -58,7 +58,7 @@
                     <li><a class="dropdown-item nav-link px-2 text-white" th:href="@{/logout}">Cerrar sesion</a></li>
                 </ul>
             </div>
--->
+
 
             <div class="m-0">
                 <a class="btn btn-outline-light fw-bolder" th:href="@{/posteos/publicar}"

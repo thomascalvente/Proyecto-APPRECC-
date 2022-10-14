@@ -41,6 +41,24 @@ public class PortalControlador {
         return "index.html";
     }
     
+    @GetMapping("/login")
+    public String login(ModelMap modelo) { //localhost:8080/
+        
+        List<Posteo> posteos = posteoServicio.listarPosteos();
+        modelo.addAttribute("posteos", posteos);
+
+        return "login.html";
+    }
+    
+    @GetMapping("/register")
+    public String register(ModelMap modelo) { //localhost:8080/
+        
+        List<Posteo> posteos = posteoServicio.listarPosteos();
+        modelo.addAttribute("posteos", posteos);
+
+        return "register.html";
+    }
+    
     @PostMapping("/")
     public String Index(@RequestParam("titulo") String titulo,
             @RequestParam("cuerpo") String cuerpo, @RequestParam("file") MultipartFile imagen, ModelMap modelo) {
