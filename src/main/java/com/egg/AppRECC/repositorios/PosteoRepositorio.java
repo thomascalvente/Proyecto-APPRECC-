@@ -23,7 +23,20 @@ public interface PosteoRepositorio extends JpaRepository<Posteo, Long>{
     @Query("SELECT n FROM Posteo n WHERE n.titulo = :titulo")
     public Posteo buscarPorTitulo(@Param("titulo") String titulo);
     
-    /* @Query("SELECT n FROM Posteo n WHERE n.borrado!=true ORDER BY n.fecha desc")
+    @Query("SELECT n FROM Posteo n WHERE n.borrado!=true ORDER BY n.fecha desc")
     public List<Posteo> listarposteos();
-     */
+    
+    @Query("SELECT n FROM Posteo n WHERE n.id = :id")
+    public Posteo buscarPorId(@Param("id") Long id);
+    
+    /*@Query("UPDATE n FROM Posteo n.borrado value true WHERE n.id = :id")
+    public Posteo borrar(@Param("id") Long id);*/
+    
+    /*@Query("UPDATE n FROM Posteo n WHERE n.id = :id")
+    public int actualizarPosteo(@Param("id") Long id);*/
+    
+    
+    @Query("UPDATE Posteo n set n.borrado = true where n.id = :id")
+    public void borrar(@Param("id") Long id);
+
 }

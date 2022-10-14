@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import net.iharder.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class PosteoServicio {
     @Autowired
     private PosteoRepositorio posteorepositorio;
     
+    @Transactional
     public void crearPosteo(String titulo, String cuerpo, MultipartFile imagen) throws MiException{
         validar(titulo, cuerpo);
         
@@ -65,6 +67,45 @@ public class PosteoServicio {
         return posteorepositorio.findById(id);
     }
     
+    public List<Posteo> listarPosteosBorrados(){
+        
+        List<Posteo> posteo = new ArrayList();
+
+        posteo = posteorepositorio.listarposteos();
+        
+        return posteo;
+    }
+    
+    @Transactional
+    public void borrar(Long id){
+        
+        posteorepositorio.borrar(id);
+    }
+    
+    public void eliminar(Long id){
+        
+        posteorepositorio.deleteById(id);
+    }
+    
+    @Transactional
+    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, LocalDate fecha){
+        
+        Optional<Posteo> respuesta = posteorepositorio.findById(id);
+        
+        if(respuesta.isPresent()){
+            Posteo posteo = respuesta.get();
+            posteo.setTitulo(titulo);
+            posteo.setCuerpo(cuerpo);
+            try {
+                posteo.setImagen(Base64.encodeBytes(imagen.getBytes()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            posteo.setFecha(fecha.now());
+            posteorepositorio.save(posteo);
+        }
+        
+    }
     
     private void validar( String titulo, String cuerpo) throws MiException {
 

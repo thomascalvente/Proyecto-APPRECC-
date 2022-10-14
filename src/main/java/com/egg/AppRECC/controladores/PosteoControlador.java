@@ -45,4 +45,21 @@ public class PosteoControlador {
         return "detail.html";
     }
     
+    @GetMapping("/borrado/{id}")
+    public String borrado(@PathVariable Long id, ModelMap modelo){
+        
+        
+        posteoServicio.eliminar(id);
+        
+        return "redirect:/"; 
+    }
+    
+    @GetMapping("/modificar/{id}")
+    public String modificar(@PathVariable Long id, ModelMap modelo){
+        
+        Optional<Posteo> posteos = posteoServicio.findById(id);
+        modelo.addAttribute("posteos", posteos.get());
+        
+        return "modificar_form.html"; 
+    }
 }

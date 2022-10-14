@@ -16,6 +16,12 @@
                             <small class="text-muted" th:text="${posteo.fecha}"></small>
                         </div>
                     </div>
+                    
+                    <a class="btn btn-success" th:href="@{/posteos/modificar/}+${posteo.id}">Modificar</a>
+                    
+                    <a th:href="@{/posteos/borrado/}+${posteo.id}" class="btn btn-danger"
+                       th:data-confirm-delete="|Estas seguro que deseas borrar ${posteo.titulo}?|">Borrar</a>
+                 
                 </div>
             </div>                     
         </div>
