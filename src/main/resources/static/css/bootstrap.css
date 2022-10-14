@@ -43,89 +43,110 @@
         scroll-behavior: smooth;
     }
 }
-html,
-body {
-  height: 100%;
+/* */
+:root { /* root: define donde se quedan las variables a usar */
+    --success-color:#07d811;
+    --error-color:#ec1a1a;
 }
 
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
+* {
+    box-sizing: border-box;
 }
 
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
-
-.b-example-divider {
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-}
-
-.bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-}
-
-.nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-}
-
-.nav-scroller .nav {
+.login-register-body{
+    background-color: #6F984C;
+    font-family: 'Proza Libre';
     display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
+
+.login-register-container {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0,3);
+    width: 300px;   
+}
+
+h2 {
+    text-align: center;
+    margin: 10 15 40px;
+}
+
+.login-register-form {
+    padding: 10px 15px; /* lado por lado */
+    background-color: #fff;
+}
+
+.login-register-form-control { /* formato que da a cada div */
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.login-register-form-control label { /* formato de los nombre de los datos */
+    color: rgb(0, 0, 0);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-register-form-control input{ /* formato de las casillas*/
+    border: 2px solid #272626;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    padding: 50 px;
+    font-size: 20px;
+}
+
+.login-register-form-control input:focus { /* color del borde al posicionarse */
+    outline: 0;
+    border-color: #4b1367;
+}
+
+.login-register-form-control.success input { /* color del borde cuando es correcto */
+    border-color: var(--success-color);
+}
+
+.login-register-form-control.error input{ /* color del borde cuando da error */
+    border-color: var(--error-color);
+}
+
+.login-register-form-control small {
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden; /*visibilidad oculta*/
+}
+
+.login-register-form-control.error small{
+    visibility: visible;
+}
+
+.login-register-letra-tamanio{
+    size: 1px;
+}
+
+.login-register-form button {
+    cursor: pointer;
+    background-color: #6F984C;
+    border:  2px solid #090909;
+    border-radius: 8px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+.login-register-imagen1 {
+    width: 70px;
+    height: 70px;
+}
+/* */
+
 .icono-inicial{
     background: white;
     border-radius: 45px;
@@ -182,7 +203,7 @@ body {
     font-size: 13px;
 }
 
-hasta aca agruegue lo de login y register
+
 
 .imagen{
     position: relative;
