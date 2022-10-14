@@ -8,6 +8,7 @@ package com.egg.AppRECC.controladores;
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +46,25 @@ public class PosteoControlador {
         return "detail.html";
     }
     
+    @GetMapping("/borrado/{id}")
+    public String borrado(@PathVariable Long id, LocalDate fecha, ModelMap modelo){
+        
+        posteoServicio.borrar(id, fecha);
+        modelo.put("exito", "el posteo se eliminó correctamente");
+        
+        
+        return "redirect:/"; 
+    }
+    
+    @GetMapping("/modificar/{id}")
+    public String modificar(@PathVariable Long id, ModelMap modelo){
+        
+        Optional<Posteo> posteos = posteoServicio.findById(id);
+        modelo.addAttribute("posteos", posteos.get());
+        modelo.addAttribute("titulo", posteos.get().getTitulo());
+        modelo.put("cuerpo", posteos.get().getCuerpo());
+        //modelo.addAttribute("file", posteos.get().getImagen());
+        
+        return "modificar_form.html"; 
+    }
 }

@@ -27,9 +27,11 @@ public class Posteo {
     private long id;
     
     private String titulo;
+    
+    @Column(length = 1000)
     private String cuerpo;
     
-    private boolean borrado;
+    private boolean borrado = false;
     
     @Column(columnDefinition = "MEDIUMTEXT")
     private String imagen;
