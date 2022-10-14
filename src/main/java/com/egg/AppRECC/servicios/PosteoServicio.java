@@ -77,14 +77,16 @@ public class PosteoServicio {
     }
     
     @Transactional
-    public void borrar(Long id){
+    public void borrar(Long id, LocalDate fecha){
+        Optional<Posteo> respuesta = posteorepositorio.findById(id);
         
-        posteorepositorio.borrar(id);
-    }
-    
-    public void eliminar(Long id){
-        
-        posteorepositorio.deleteById(id);
+        if(respuesta.isPresent()){
+            Posteo posteo = respuesta.get();
+            
+            posteo.setFecha(fecha.now());
+            posteo.setBorrado(true);
+            posteorepositorio.save(posteo);
+        }   
     }
     
     @Transactional
@@ -103,8 +105,7 @@ public class PosteoServicio {
             }
             posteo.setFecha(fecha.now());
             posteorepositorio.save(posteo);
-        }
-        
+        }        
     }
     
     private void validar( String titulo, String cuerpo) throws MiException {
