@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <body class="login-register-body">
+        
+        <main>
+            <div style="text-align: center ">
+                <img src="/img/mundo.png" class="imagen1" />
+            </div>
+            <form id="form" class="login-register-form">
+                <h2>Iniciar Sesión!</h2>
+                
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="text"
+                        id="email"
+                        placeholder="Email"
+                        />
+                    <small>Error Message</small>
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="text"
+                        id="password"
+                        placeholder="Contraseña"
+                        />
+                    <small>Error Message</small>
+                </div>
+            
+                <button>Log In</button>
+            </form>
+            <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
+        </main>
+    </body>
+</html>
