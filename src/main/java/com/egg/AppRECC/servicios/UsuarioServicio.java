@@ -41,7 +41,7 @@ public class UsuarioServicio implements UserDetailsService{
             Usuario usuario = new Usuario();
             usuario.setNombre(nombre);
             usuario.setEmail(email);
-            usuario.setPassword(password);
+            usuario.setPassword(new BCryptPasswordEncoder().encode(password));
             usuario.setActivo(1);
             if(password.equals(password2)){
                 repo.save(usuario);

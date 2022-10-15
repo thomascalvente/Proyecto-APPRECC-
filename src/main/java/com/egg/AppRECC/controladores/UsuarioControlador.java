@@ -27,14 +27,19 @@ public class UsuarioControlador {
         
         int retorno = usuarioServicio.crearUsuario(nombre, email, password, password2);
         
-        if(retorno==0){
-            modelo.put("exito", "El usuario se creo correctamente");
+        
+        if(retorno==-1){
+            modelo.put("error", "el proceso lanzo una excepcion");
             
         }else if(retorno==1){
             modelo.put("error", "contrasenia no coincide");
-        }else{
-            modelo.put("error", "el proceso lanzo una excepcion");
             
+            modelo.addAttribute("nombre", nombre);
+            modelo.addAttribute("email", email);
+        }else{
+            
+            modelo.put("exito", "El usuario se creo correctamente");
+            return "redirect:/";
         }
         
         

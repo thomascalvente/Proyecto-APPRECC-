@@ -50,7 +50,7 @@
     margin-right: 10px;
 }
 .links{
-    background-color: darkred; 
+    background-color: darkgreen; 
     display: none;
     border-radius: 0px 0px 5px 5px;
 }
@@ -7503,7 +7503,7 @@ textarea.form-control-lg {
 }
 
 .bg-dark {
-    background-color: darkred !important;
+    background-color: darkgreen !important;
 }
 
 .bg-body {
