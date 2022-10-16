@@ -38,26 +38,26 @@ public class PortalControlador {
         modelo.addAttribute("posteos", posteos);
         
 
-        return "index.html";
+        return "inicio.html";
     }
     
-    @GetMapping("/login")
-    public String login(ModelMap modelo) { //localhost:8080/
-        
-        List<Posteo> posteos = posteoServicio.listarPosteos();
-        modelo.addAttribute("posteos", posteos);
-
-        return "login.html";
-    }
-    
-    @GetMapping("/register")
-    public String register(ModelMap modelo) { //localhost:8080/
-        
-        List<Posteo> posteos = posteoServicio.listarPosteos();
-        modelo.addAttribute("posteos", posteos);
-
-        return "register.html";
-    }
+//    @GetMapping("/login")
+//    public String login(ModelMap modelo) { //localhost:8080/
+//        
+//        List<Posteo> posteos = posteoServicio.listarPosteos();
+//        modelo.addAttribute("posteos", posteos);
+//
+//        return "login.html";
+//    }
+//    
+//    @GetMapping("/register")
+//    public String register(ModelMap modelo) { //localhost:8080/
+//        
+//        List<Posteo> posteos = posteoServicio.listarPosteos();
+//        modelo.addAttribute("posteos", posteos);
+//
+//        return "register.html";
+//    }
     
     @PostMapping("/")
     public String Index(@RequestParam("titulo") String titulo,
