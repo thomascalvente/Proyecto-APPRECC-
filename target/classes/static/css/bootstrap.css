@@ -43,10 +43,16 @@
         scroll-behavior: smooth;
     }
 }
-/* */
-:root { /* root: define donde se quedan las variables a usar */
-    --success-color:#07d811;
-    --error-color:#ec1a1a;
+
+/* -------------------------------------------------------------------------- */
+
+.apprecc {
+    width: 251px;
+    font-family: 'Proza Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    color: #6F984C;
 }
 
 * {
