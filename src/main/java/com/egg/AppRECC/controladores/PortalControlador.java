@@ -36,7 +36,6 @@ public class PortalControlador {
         //List<Posteo> posteos = posteoServicio.listarPosteos();
         List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
         modelo.addAttribute("posteos", posteos);
-        
 
         return "inicio.html";
     }
