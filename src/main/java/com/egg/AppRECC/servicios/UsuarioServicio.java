@@ -26,16 +26,7 @@ public class UsuarioServicio implements UserDetailsService {
     @Autowired
     private UsuarioRepositorio repo;
 
-    /**
-     * *
-     *
-     * @param nombre
-     * @param email
-     * @param password
-     * @param password2
-     * @return 1 contraseña no coincide 0 proceso finalizado correctamente -1
-     * excepcion no tratada
-     */
+
     public void crearUsuario(String nombre, String email, String password, String password2) throws MiException {
         validar(nombre, email, password, password2);
 
@@ -44,24 +35,7 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setEmail(email);
         usuario.setPassword(new BCryptPasswordEncoder().encode(password));
         usuario.setActivo(1);
-        repo.save(usuario);
 
-    }
-
-    public void validar(String nombre, String email, String password, String password2) throws MiException {
-
-        if (nombre.isEmpty() || nombre == null) {
-            throw new MiException("El nombre no puede ser nulo o estar vacio");
-        }
-        if (email.isEmpty() || email == null) {
-            throw new MiException("El email no puede ser nulo o estar vacio");
-        }
-        if (password.isEmpty() || password == null || password.length() <= 5) {
-            throw new MiException("La contraseña no puede estar vacia, y debe tener mas de 5 digitos");
-        }
-        if (!password.equals(password2)) {
-            throw new MiException("Las contraseñas ingresadas deben ser iguales");
-        }
     }
 
     public List<Usuario> listarUsuarios() {
@@ -98,6 +72,7 @@ public class UsuarioServicio implements UserDetailsService {
             repo.save(usuario);
 
         }
+
     }
 
     @Override
