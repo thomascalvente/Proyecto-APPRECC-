@@ -16,32 +16,7 @@
                             <small class="text-muted" th:text="${posteo.fecha}"></small>
                         </div>
                     </div>
-                    
-                    <a class="btn btn-success" th:href="@{/posteos/modificar/}+${posteo.id}">Modificar</a>
-                    
-                    <a data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal2'+*{posteo.id}" class="btn btn-danger">Borrar</a>
-                    
-                    <div class="modal fade" th:id="*{'exampleModal2'+{posteo.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                        <div class="modal-dialog  modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class= "modal-header">
-                                    <h5 class= "modal-title" id="exampleModalLongTitle" >Confirm Delete</h5>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn-close btn-xl" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                 Are you sure you want to delete this user?
-                                  <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
-                                </div>
-                                <div class="modal-footer">
-                                  <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                  <a type= "button" class= "btn btn-primary" th:href="@{/posteos/borrado/}+${posteo.id}">Borrar posteo</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 
+
                 </div>
             </div>                     
         </div>

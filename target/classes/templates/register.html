@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <body class="login-register-body">
+
+        <main>
+            <div style="text-align: center ">
+                <img src="/img/mundo.png" class="imagen1" />
+            </div>
+            <form id="form" class="login-register-form" enctype="multipart/form-data"
+                  th:action="@{/usuario/registro}" method="POST">
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Error</h5>
+                        <p class="card-text" th:text="${error}"></p>
+                    </div>    
+                </div>
+
+                
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Exito</h5>
+                        <p class="card-text" th:text="${exito}"></p>
+                    </div>
+                </div> 
+                <h2>Registrate!</h2>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="text"
+                        name="nombre" th:value="*{nombre}" placeholder="nombre"
+                        />
+                    <small>Error Message</small>
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="email"
+                        name="email" th:value="*{email}" placeholder="email"
+                        />
+                    <small>Error Message</small>
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="password"
+                        id="password"
+                        name="password" th:value="*{password}" placeholder="password"
+                        />
+                    <small>Error Message</small>
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="password"
+                        id="password2"
+                        placeholder="Repetir contraseña"
+                        name="password2" th:value="*{password2}" 
+                        />
+                    <small>Error Message</small>
+                </div>
+                <button name="boton" type="submit">Registrarse</button>
+            </form>
+            <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
+        </main>
+    </body>
+</html>
