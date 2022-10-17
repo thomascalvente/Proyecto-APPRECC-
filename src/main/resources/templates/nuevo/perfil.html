@@ -1,118 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>AppReCC | Contact</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/cufon-yui.js"></script>
-    <script type="text/javascript" src="js/arial.js"></script>
-    <script type="text/javascript" src="js/cuf_run.js"></script>
-    <script src="js/jquery.js" type="text/javascript"></script>
-  </head>
-  <!-- PUBLICAR -->
-  <body>
-    <div class="main">
-      <div class="header">
-        <div class="header_resize">
-          <div class="logo">
-            <h1>
-              <a href="index.html">
-                <span>AppReCC</span>
-                Egg
-                <small>Vive mejor</small>
-              </a>
-            </h1>
-          </div>
-          <div class="menu">
-            <ul>
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="services.html">Perfil</a></li>
-              <li><a href="about.html">Nosotros</a></li>
-              <li><a href="contact.html" class="active">Publicar</a></li>
-              <li><a href="">Ingresar</a></li>
-            </ul>
-          </div>
-          <div class="clr"></div>
-        </div>
-        <div class="headert_text_resize">
-          <div class="headert_text">
-            <h2></h2>
-            <p>
-              "No podemos darnos el lujo de la indecisión, las medidas a medias
-              o los enfoques graduales. Nuestra meta debe ser una
-              transformación"
-            </p>
-            <p>Si amas la tierra, recicla y conserva!</p>
-          </div>
-          <img src="" alt="" width="455" height="273" />
-          <div class="clr"></div>
-        </div>
-      </div>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- PUBLICAR -->
+    <body>
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body">
+                <div class="body_resize">
+                    <div class="left">
 
-      <div class="body">
-        <div class="body_resize">
-          <div class="left">
-            <div class="resize_bg">
-              <h2>Publique su nueva Compania:</h2>
-              <p>
-                Una campaña es un conjunto de actividades o de trabajos que se
-                realizan en un período de tiempo determinado y están encaminados
-                a conseguir un fin.
-              </p>
-              <form action="#" method="post" id="contactform">
-                <ol>
-                  <li>
-                    <label for="name">Titulo</label>
-                    <input id="name" name="name" class="text" />
-                  </li>
-                  <li>
-                    <label for="email">E-Mail</label>
-                    <input id="email" name="email" class="text" />
-                  </li>
-                  <li>
-                    <label for="company">Imagen</label>
-                    <input id="company" name="company" class="text" />
-                  </li>
-                  <li>
-                    <label for="message">Cuerpo</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="6"
-                      cols="50"
-                    ></textarea>
-                  </li>
-                  <li class="buttons">
-                    <input
-                      type="submit"
-                      name="imageField"
-                      id="imageField"
-                      value="Guardar"
-                      class="send"
-                    />
-                    <div class="clr"></div>
-                  </li>
-                </ol>
-              </form>
-            </div>
-          </div>
-          <div class="right">
-            <div class="resize_bg">
-              <h2>
-                <span>Menu</span>
-              </h2>
-              <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Perfil</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="clr"></div>
-        </div>
-      </div>
-      
-    </div>
-  </body>
-</html>
+                        <div class="body">
+                            <div class="body_resize">
+                                <div class="left">
+                                    <div class="resize_bg">
+                                        <h2>Editar Perfil:</h2>
+                                        <form action="#" method="post" id="contactform">
+                                            <ol>
+                                                <li>
+                                                    <label for="name">Nombre</label>
+                                                    <input id="name" name="name" class="text" />
+                                                </li>
+                                                <li>
+                                                    <label for="email">E-Mail</label>
+                                                    <input id="email" name="email" class="text" />
+                                                </li>
+                                                <li>
+                                                    <label for="company">Contrasenia</label>
+                                                    <input id="company" name="company" class="text" />
+                                                </li>
+                                                <li>
+                                                    <label for="message">
+                                                        Ingrese de nuevo su contrasenia:
+                                                    </label>
+                                                    <input id="company" name="company" class="text" />
+                                                </li>
+                                                <li class="buttons">
+                                                    <input
+                                                        type="submit"
+                                                        name="imageField"
+                                                        id="imageField"
+                                                        value="Guardar"
+                                                        class="send"
+                                                        />
+                                                    <div class="clr"></div>
+                                                </li>
+                                            </ol>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="resize_bg">
+                                        <h2>
+                                            <span>Menu</span>
+                                        </h2>
+                                        <ul>
+                                            <li><a th:href="@{/}" class="active">Inicio</a></li>    <!-- VER -->
+                                            <li><a th:href="@{/perfil}">Perfil</a></li>
+                                            <li><a th:href="@{/nosotros}">Nosotros</a></li>
+                                            <li><a th:href="@{/publicar}">Publicar</a></li>
+                                            <li><a th:href="@{/login}" >Ingresar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </body>
+                </html>

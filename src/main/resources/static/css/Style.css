@@ -40,7 +40,7 @@ p.clr, .clr {
 	margin:0 auto;
 	padding:0;
 	float:left;
-	background:url(images/logo.gif) no-repeat 240px 32px;
+	background:url(/img/logo.gif) no-repeat 240px 32px;
 }
 h1 {
 	margin:0;
@@ -125,18 +125,18 @@ h1 small {
 }
 .menu ul li a:hover {
 	color:#a2cf58;
-	background:url(images/hover.gif) top repeat-x;
+	background:url(/img/hover.gif) top repeat-x;
 }
 .menu ul li a.active {
 	color:#a2cf58;
-	background:url(images/hover.gif) top repeat-x;
+	background:url(/img/hover.gif) top repeat-x;
 	font-weight:bold;
 }
 .headert_text_resize {
 	width:969px;
 	padding:0;
 	margin:0 auto;
-	background:url(images/header_text_bg.gif) top no-repeat;
+	background:url(/img/header_text_bg.gif) top no-repeat;
 	height:320px;
 }
 .headert_text_resize img {

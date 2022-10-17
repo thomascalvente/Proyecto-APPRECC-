@@ -1,109 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>AppReCC | About</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="js/cufon-yui.js"></script>
-    <script type="text/javascript" src="js/arial.js"></script>
-    <script type="text/javascript" src="js/cuf_run.js"></script>
-  </head>
-  <!-- NOSOTROS -->
-  <body>
-    <div class="main">
-      <div class="header">
-        <div class="header_resize">
-          <div class="logo">
-            <h1>
-              <a href="index.html">
-                <span>AppReCC</span>
-                Egg
-                <small>Vive mejor</small>
-              </a>
-            </h1>
-          </div>
-          <div class="menu">
-            <ul>
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="services.html">Perfil</a></li>
-              <li><a href="about.html" class="active">Nosotros</a></li>
-              <li><a href="contact.html">Publicar</a></li>
-              <li><a href="">Ingresar</a></li>
-            </ul>
-          </div>
-          <div class="clr"></div>
-        </div>
-        <div class="headert_text_resize">
-          <div class="headert_text">
-            <h2></h2>
-            <p>
-              "No podemos darnos el lujo de la indecisión, las medidas a medias
-              o los enfoques graduales. Nuestra meta debe ser una
-              transformación"
-            </p>
-            <p>Si amas la tierra, recicla y conserva!</p>
-          </div>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- NOSOTROS -->
+    <body>
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body">
+                <div class="body_resize">
+                    <div class="left">
+                        <div class="resize_bg">
+                            <h2>
+                                ¿Quienes somos?
+                            </h2>
+                            <p>
+                                Hoy en día es difícil negar que sentimos y sufrimos el cambio climático en nuestra vida 
+                                diaria en mayor o menor medida. Olas de frío y calor, tormentas extremas, 
+                                sequías, inundaciones, incendios, plagas, desertificación, pérdida de bosques, etc. 
+                                ¿Por qué sucede y que debería suceder para evitar que la situación se agrave?
+                                Los principales riesgos para América Central y del Sur son la falta de acceso al agua potable, efectos sanitarios graves 
+                                (debido al aumento de las epidemias), la degradación de los ecosistemas de los arrecifes de coral (debido al blanqueamiento de los corales), 
+                                sequías frecuentes y/o extremas que pondrán en peligro la seguridad alimentaria y las inundaciones, los corrimientos de tierra, la subida del nivel del mar, 
+                                las mareas de tempestad y la erosión costera que puede generar daños severos a la vida y a medios de subsistencia. 
+                                Aunque parezca un escenario de película apocalíptica en nuestro país ya estamos sufriendo los impactos, 
+                                las pérdidas y los daños que exponen los informes internacionales.
+                                Incendios e inundaciones:
+                                La crisis climática ya es una realidad en Argentina y la sequía es uno de sus impactos más palpables y, 
+                                junto al fenómeno de La Niña aumentan las condiciones para que sucedan eventos climáticos cada vez más graves.
+                                2021 fue el año más caliente y seco en Argentina desde 1961: cuatro olas de calor afectaron al centro y sur de Argentina, 
+                                y produjeron récords históricos de temperaturas máximas que alimentaron grandes incendios en la Patagonia 
+                                ampliando en duración y extensión incendios para cambiar el uso del suelo.
+                                La falta de lluvias y condiciones de sequía extrema continuaron durante el 2021 en el norte del Litoral y la cuenca del río Paraná, 
+                                luego de un 2020 extremadamente seco. El río Paraná experimentó una bajante histórica sin precedentes desde 1944.
+                                Por todo ello es hora de que la destrucción de ecosistemas clave como son los humedales y 
+                                los bosques sea entendida como lo que es, un ecocidio y, por lo tanto, considerados como un delito penal.
+                                Avance de la deforestación:
+                                Los bosques y sus suelos almacenan más carbono que cualquier otro ecosistema terrestre y juegan un papel vital en la mitigación de la inestabilidad del clima. 
+                                Manteniendo los bosques intactos, es decir como extensiones ininterrumpidas de paisaje forestal, 
+                                aumenta su capacidad de recuperación frente al cambio climático.
+                                En Argentina, la región del Gran Chaco, es una de las más amenazadas por la deforestación y la degradación, es la que mantiene el 50% 
+                                del contenido de CO2 de los bosques de Argentina.  Según resultados del segundo Informe Bienal de Actualización (BUR), el sector Bosques fue responsable de la emisión 
+                                de 57,4 MtCO2eq en 2014, lo que representa el 15,6% de la emisión total de gases de efecto invernadero (GEI) de la Argentina de ese año.
+                                Las principales causas de la pérdida de bosques son el avance de la frontera agropecuaria (ganadería y soja transgénica) y los incendios. 
+                                Justamente estos sectores Agricultura, Ganadería, Silvicultura y otros Usos de la Tierra representaron el 39% de las emisiones de Gases de Efecto Invernadero (GEI) de Argentina en 2017.
+                                Explotación en el mar:
+                                Los océanos también son reguladores de la temperatura terrestre: sin ellos, la temperatura rondaría los 36°C por encima de los valores diarios.Aportan entre 
+                                el 50% y 80% del oxígeno que se libera a la atmósfera.  A su vez, cumplen un rol fundamental al capturar entre el 20% y 30% del carbono procedente de las emisiones 
+                                de gases de efecto invernadero y lo almacenan en el fondo marino. De esa manera, contribuyen a la mitigación del cambio climático. 
+                                En nuestro país, la acción climática es insuficiente, y además continúa la promoción y expansión de la producción de hidrocarburos en el mar argentino 
+                                durante las próximas tres décadas con los objetivos paradójicos de agilizar la transición hacia energías renovables.  Esto sucede aún cuando el IPCC determinó que no se pueden abrir nuevas 
+                                fronteras de explotación petrolera en ninguna parte del mundo si queremos cumplir con los objetivos climáticos de limitar la temperatura global al 1.5C°.
+                                <br />
+                                Nuestro objetivo es informar y conectar a las personas con temáticas de relevancia
+                                social, como el reciclaje, salud física y mental, seguridad
+                                social, entre otros, a través de información real y respaldada,
+                                sin sesgo político, religioso o de cualquier otra índole. Así,
+                                lograr transformaciones que mejoren la vida de las personas,
+                                mediante el aumento progresivo de la participación ciudadana,
+                                buscando el bien común y la paz social.
+                            </p>
+                            <h2>&nbsp;</h2>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="resize_bg">
+                            <h2>Contactanos!</h2>
+                            <ul class="sponsors">
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Gustavo Torti</li>
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Thomas Calvente</li>
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Laura Romano</li>
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Ysaac Briceño</li>
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Diego Reartes</li>
+                                <li class="sponsors"><a href="#">email</a><br />
+                                    Juan Pablo Molfese</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <img src="" alt="" width="455" height="273" />
-          <div class="clr"></div>
-        </div>
-      </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
 
-      <div class="body">
-        <div class="body_resize">
-          <div class="left">
-            <div class="resize_bg">
-              <h2>
-                ¿Quienes somos?
-              </h2>
-              <p>
-                Somos una comunidad ambientalista que se concentra en aquellos
-                movimientos sociales y comunitarios cuya causa principal es la
-                protección y preservación del medio ambiente. Este tipo de
-                movimientos suelen ser denominados también como
-                conservacionismo, política verde o ecologismo. Este último
-                término, sin embargo, no debe ser confundido con la palabra
-                ecología, que significa ‘ciencia que estudia el medio ambiente’.
-                El ambientalismo ha ido creciendo en la medida en que ha crecido
-                el parque industrial, especialmente a partir de la segunda mitad
-                del siglo XX. Ha alcanzado su punto álgido desde los años 70, en
-                pleno contexto de la crisis del petróleo, cuando se pusieron de
-                manifiesto las contradicciones entre el modelo del desarrollo y
-                la sustentabilidad del estilo de vida contemporáneo. Uno de los
-                temas que más preocupa a los ambientalistas de la actualidad es
-                el fenómeno del calentamiento global.
-                <br />
-                Objetivos del ambientalismo en términos generales, los
-                movimientos ambientalistas o el ambientalismo se propone:
-                Preservar el medio ambiente; Prevenir la extinción de especies
-                animales y vegetales; Combatir la destrucción del medio
-                ambiente; Crear conciencia en la población sobre la
-                responsabilidad humana en las alteraciones del ecosistema.
-              </p>
-              <h2>&nbsp;</h2>
-            </div>
-          </div>
-          <div class="right">
-            <div class="resize_bg">
-              <h2>Nuestra Mision:</h2>
-              <p>
-                Informar y conectar a las personas con temáticas de relevancia
-                social, como el reciclaje, salud física y mental, seguridad
-                social, entre otros, a través de información real y respaldada,
-                sin sesgo político, religioso o de cualquier otra índole. Así,
-                lograr transformaciones que mejoren la vida de las personas,
-                mediante el aumento progresivo de la participación ciudadana,
-                buscando el bien común y la paz social.
-                <br />
-                <br />
-                <br />
-              </p>
-            </div>
-          </div>
-          <div class="clr"></div>
         </div>
-      </div>
-      
-    </div>
-  </body>
+    </body>
 </html>
