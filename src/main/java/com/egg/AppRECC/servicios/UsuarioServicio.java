@@ -1,6 +1,7 @@
 package com.egg.AppRECC.servicios;
 
 import com.egg.AppRECC.entidades.Usuario;
+import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,104 +20,104 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-
 @Service
-public class UsuarioServicio implements UserDetailsService{
-    
+public class UsuarioServicio implements UserDetailsService {
+
     @Autowired
     private UsuarioRepositorio repo;
-    /***
-     * 
-     * @param nombre
-     * @param email
-     * @param password
-     * @param password2
-     * @return 1 contraseña no coincide
-     *         0 proceso finalizado correctamente
-     *        -1 excepcion no tratada
-     */
-    public int crearUsuario(String nombre, String email, String password, String password2){
-        
-        try {
-            Usuario usuario = new Usuario();
-            usuario.setNombre(nombre);
-            usuario.setEmail(email);
-            usuario.setPassword(new BCryptPasswordEncoder().encode(password));
-            usuario.setActivo(1);
-            if(password.equals(password2)){
-                repo.save(usuario);
-            }else{
-                return 1;
-            }
-            
-        } catch (Exception e) {
-            return -1;
-        }
-        
-        
-        
-        return 0;     
+
+    public void crearUsuario(String nombre, String email, String password, String password2) throws MiException {
+        validar(nombre, email, password, password2);
+
+        Usuario usuario = new Usuario();
+        usuario.setNombre(nombre);
+        usuario.setEmail(email);
+        usuario.setPassword(new BCryptPasswordEncoder().encode(password));
+        usuario.setActivo(1);
+
+        repo.save(usuario);
+
     }
-    
-    public List<Usuario> listarUsuarios(){
+
+    public List<Usuario> listarUsuarios() {
         return repo.listarActivos();
     }
-    
+
     @Transactional
-    public void actualizar(String id, String nombre, String email, String password){
-        
+    public void actualizar(String id, String nombre, String email, String password) {
+
         Optional<Usuario> respuesta = repo.findById(id);
-        
-        if(respuesta.isPresent()){
+
+        if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
             usuario.setNombre(nombre);
             usuario.setEmail(email);
             usuario.setPassword(new BCryptPasswordEncoder().encode(password));
-            usuario.setActivo(usuario.getActivo()+1);
+            usuario.setActivo(usuario.getActivo() + 1);
 
             repo.save(usuario);
-            
-        }        
+
+        }
     }
-    
+
     @Transactional
-    public void eliminar(String id){
-        
+    public void eliminar(String id) {
+
         Optional<Usuario> respuesta = repo.findById(id);
-        
-        if(respuesta.isPresent()){
+
+        if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
-            
+
             usuario.setActivo(0);
 
             repo.save(usuario);
-            
-        }        
+
+        }
     }
-    
+
+    public void validar(String nombre, String email, String password, String password2) throws MiException {
+        /*Usuario usuario = usuarioRepositorio.buscarPorEmail(email);*/
+
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre no puede ser nulo o estar vacio");
+        }
+        if (email.isEmpty() || email == null) {
+            throw new MiException("El email no puede ser nulo o estar vacio");
+        }
+        if (password.isEmpty() || password == null || password.length() <= 5) {
+            throw new MiException("La contraseña no puede estar vacia, y debe tener mas de 5 digitos");
+        }
+        if (!password.equals(password2)) {
+            throw new MiException("Las contraseñas ingresadas deben ser iguales");
+        }
+        /*if(usuario.getEmail().equals(email)){
+            throw new MiException("El usuario que intenta registrar ya se encuentra registrado, intenta otro");
+        }*/
+    }
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = repo.encontrarUsuarioPorEmail(email);
-        
-        if(usuario != null){
-            
+
+        if (usuario != null) {
+
             List<GrantedAuthority> permisos = new ArrayList();
-            
-            GrantedAuthority p = new SimpleGrantedAuthority("ROLE_"+usuario.getRol().toString());
-            
+
+            GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString());
+
             permisos.add(p);
-            
+
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-            
+
             HttpSession sesion = attr.getRequest().getSession(true);
-            
+
             sesion.setAttribute("usuariosession", usuario);
-            
+
             return new User(usuario.getEmail(), usuario.getPassword(), permisos);
-        }else{
+        } else {
             return null;
         }
-        
+
     }
-    
+
 }

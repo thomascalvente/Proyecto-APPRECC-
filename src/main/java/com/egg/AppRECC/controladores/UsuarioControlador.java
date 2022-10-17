@@ -1,5 +1,6 @@
 package com.egg.AppRECC.controladores;
 
+import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,27 +24,18 @@ public class UsuarioControlador {
     
     @PostMapping("/registro")
     public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
-            @RequestParam("password") String password, @RequestParam("password2") String password2, ModelMap modelo){
+            @RequestParam("password") String password, @RequestParam("password2") String password2, ModelMap modelo) throws MiException{
         
-        int retorno = usuarioServicio.crearUsuario(nombre, email, password, password2);
-        
-        
-        if(retorno==-1){
-            modelo.put("error", "el proceso lanzo una excepcion");
-            
-        }else if(retorno==1){
-            modelo.put("error", "contrasenia no coincide");
-            
-            modelo.addAttribute("nombre", nombre);
-            modelo.addAttribute("email", email);
-        }else{
-            
+        try {
+            usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
-        }
-        
-        
-        return "user_form.html";
+        } catch (MiException e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
+            return "user_form.html";
+        }    
     }
     
 }
