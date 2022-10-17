@@ -43,10 +43,16 @@
         scroll-behavior: smooth;
     }
 }
-/* */
-:root { /* root: define donde se quedan las variables a usar */
-    --success-color:#07d811;
-    --error-color:#ec1a1a;
+
+/* -------------------------------------------------------------------------- */
+
+.apprecc {
+    width: 251px;
+    font-family: 'Proza Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    color: #6F984C;
 }
 
 * {
@@ -153,7 +159,7 @@ h2 {
     margin-right: 10px;
 }
 .links{
-    background-color: darkred; 
+    background-color: darkgreen; 
     display: none;
     border-radius: 0px 0px 5px 5px;
 }
@@ -7606,7 +7612,7 @@ textarea.form-control-lg {
 }
 
 .bg-dark {
-    background-color: darkred !important;
+    background-color: darkgreen !important;
 }
 
 .bg-body {

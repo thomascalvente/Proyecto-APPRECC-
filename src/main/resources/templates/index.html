@@ -9,7 +9,18 @@ and open the template in the editor.
     <body>
         <div className="col-12">
         <header th:replace="/fragments/header :: header"></header>
-        </div>
+        
+        <!--<div th:if="${exito == null}" class="d-none">-->
+            
+            <div th:if="${exito != null}" class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Exito</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>           
+        <!--</div>-->
+        
+
         <main>
             <div th:replace= "/fragments/card :: div"></div>
         </main>

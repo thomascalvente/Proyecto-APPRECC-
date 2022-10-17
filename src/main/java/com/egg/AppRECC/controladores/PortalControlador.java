@@ -36,11 +36,39 @@ public class PortalControlador {
         //List<Posteo> posteos = posteoServicio.listarPosteos();
         List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
         modelo.addAttribute("posteos", posteos);
-        
 
-        return "index.html";
+        return "nuevo/inicio.html";
     }
     
+    @GetMapping("nosotros")
+    public String nosotros(ModelMap modelo) { //localhost:8080/
+        
+        //List<Posteo> posteos = posteoServicio.listarPosteos();
+        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        modelo.addAttribute("posteos", posteos);
+
+        return "nuevo/nosotros.html";
+    }
+    
+    @GetMapping("perfil")
+    public String perfil(ModelMap modelo) { //localhost:8080/
+        
+        //List<Posteo> posteos = posteoServicio.listarPosteos();
+        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        modelo.addAttribute("posteos", posteos);
+
+        return "nuevo/perfil.html";
+    }
+    
+    @GetMapping("publicar")
+    public String publicar(ModelMap modelo) { //localhost:8080/
+        
+        //List<Posteo> posteos = posteoServicio.listarPosteos();
+        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        modelo.addAttribute("posteos", posteos);
+
+        return "nuevo/publicar.html";
+    }
     @GetMapping("/login")
     public String login(ModelMap modelo) { //localhost:8080/
         
