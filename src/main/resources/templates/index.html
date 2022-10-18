@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
+
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace= "/fragments/head :: head" ></head>
     <body>
@@ -17,4 +17,268 @@ and open the template in the editor.
         <footer th:replace= "/fragments/footer :: div"></footer>
 
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/CSS/bootstrap.css" />
+    <script src="JS/bootstrap.js" ></script>
+    <title>inicio</title>
+  </head>
+  <body>
+    <header class="p-3 text-bg-dark margen">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img class="mundo" src="mundo.png" alt="" />
+          </a>
+  
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          </ul>
+  
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+          </form>
+  
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn btn-warning">Sign-up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 fst-italic">¿Quienes somos?</h1>
+          <p class="lead my-3">Somos una aplicación que se enfoca en los cambios climaticos, la cual, se enfoca en el dinanismo de los usuarios, ¡mientras más participen menos sufrira nuestro planeta!</p></p>
+          <p class="lead mb-0"><a href="#" class="text-white fw-bold">Seguir leyendo...</a></p>
+        </div>
+      </div>
+    
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary">ULTIMO MOMENTO</strong>
+              <h3 class="mb-0">Nuestro mejor usario es:</h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">El usario Thomas Calvente es el que ha tenido un mejor desempeño en la primera semana de Spring.</p>
+              <a href="#" class="stretched-link">Seguir leyendo...</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img class="mundo" src="Foto proyecto.jpeg" alt="" />
+    
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success">NOVEDAD</strong>
+              <h3 class="mb-0">Primer testitomino:</h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="mb-auto">El usario Gustavo ha capturado el momento en el que levanta la basura del pasto y limpia la vereda.</p>
+              <a href="#" class="stretched-link">Seguir <leyendo class=""></leyendo></a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              <img class="mundo" src="foto proyecto2.jpeg" width="100%" alt="" />
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </main>
+    
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Laura ha publicado su primer testimonio.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usario Marina ha conseguido realizar su primera foto en pro al cuiado ambiental.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usario Juan se ha unido a la aplicación.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Ysaac ha realizado su primer testimonio.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Thomas ha publicado su primer testimonio.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Pepito se ha unido a la aplicación.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Toro se ha unido a la aplicación.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">Nuestro aplicación es cada vez más conocida.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">El usuario Gustavo ha sido recompensado por su desempeño semanal.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+    
+    <div class="container">
+      <hr />
+    </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">&copy; 2022 APPRECC Todos los derechos reservados</p>
+    
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <img class="mundo" src="mundo.png" alt="" />
+        </a>
+    
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+      </footer>
+    </div>
+
+  </body>
 </html>
