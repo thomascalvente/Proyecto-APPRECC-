@@ -2,7 +2,7 @@
     <head th:replace= "/fragments/head :: head" ></head>
     <!-- INICIO -->
     <body>
-        
+
         <header th:replace= "/fragments/header :: header" ></header>
         <div class="main">
             <div th:replace="/fragments/cartel :: div"></div>
@@ -13,11 +13,13 @@
                             <h2 th:text="${posteo.titulo}">
                                 <span th:text="${posteo.titulo}"></span>
                             </h2>
-                            <img th:src="@{'data:image/jpeg;base64,'+${posteo.imagen}}" alt="" width="615" height="400" />
+                            <a th:href="@{/posteos/detalle/} + ${posteo.id}" >
+                                <img th:src="@{'data:image/jpeg;base64,'+${posteo.imagen}}" alt="" width="615" height="400" />
+                            </a>
                             <div class="clr"></div>
                             <p th:text="${posteo.cuerpo}" >
                             </p>
-                            <p><a th:href="@{/posteos/detalle/} + ${posteo.id}">Ver</a></p>
+
                             <h2>&nbsp;</h2>
                         </div>
                     </div>
