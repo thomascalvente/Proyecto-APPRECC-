@@ -68,21 +68,7 @@ public class UsuarioServicio implements UserDetailsService {
         }*/
     }
 
-    public void validar(String nombre, String email, String password, String password2) throws MiException {
-
-        if (nombre.isEmpty() || nombre == null) {
-            throw new MiException("El nombre no puede ser nulo o estar vacio");
-        }
-        if (email.isEmpty() || email == null) {
-            throw new MiException("El email no puede ser nulo o estar vacio");
-        }
-        if (password.isEmpty() || password == null || password.length() <= 5) {
-            throw new MiException("La contraseña no puede estar vacia, y debe tener mas de 5 digitos");
-        }
-        if (!password.equals(password2)) {
-            throw new MiException("Las contraseñas ingresadas deben ser iguales");
-        }
-    }
+    
 
     public List<Usuario> listarUsuarios() {
         return repo.listarActivos();

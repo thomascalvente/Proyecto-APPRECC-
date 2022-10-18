@@ -35,23 +35,19 @@ public class UsuarioControlador {
 
     @PostMapping("/registro")
     public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
-<<<<<<< Updated upstream
+
             @RequestParam("password") String password, @RequestParam("password2") String password2, ModelMap modelo){
-=======
-            @RequestParam("password") String password,@RequestParam("password2") String password2, ModelMap modelo){
  
->>>>>>> Stashed changes
+
         try {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
-<<<<<<< Updated upstream
-            return "register.html";
-=======
+
             return "user_form";
->>>>>>> Stashed changes
+
         }
     }
     
