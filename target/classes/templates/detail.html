@@ -34,11 +34,30 @@ and open the template in the editor.
                                     />
                             </div>
                             <a class="btn btn-success" th:href="@{/posteos/modificar/}+${posteos.id}">Modificar</a>
-
-                            <a th:href="@{/posteos/borrado/}+${posteos.id}" class="btn btn-danger"
+                            
+                            <a type="button" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal'+*{posteos.id}" class="btn btn-danger"
                                th:data-confirm-delete="|Estas seguro que deseas borrar ${posteos.titulo}?|">Borrar</a>
                         </div>
-
+                        <div class="modal fade" th:id="*{'exampleModal'+{posteos.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class= "modal-header">
+                                        <h5 class= "modal-title" id="exampleModalLongTitle" >Confirm Delete</h5>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn-close btn-xl" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                     Está seguro que desea borrar el posteo?
+                                      <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
+                                      <a type= "button" class= "btn btn-primary" th:href="@{/posteos/borrado/}+${posteos.id}">Borrar posteo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <section class="text-center container">
 
@@ -57,4 +76,6 @@ and open the template in the editor.
 
 
         <footer th:replace= "/fragments/footer :: div"></footer>
+        
+    </body>
 </html>
