@@ -39,6 +39,8 @@ public class UsuarioServicio implements UserDetailsService {
     usuario.setEmail(email);
     usuario.setPassword(new BCryptPasswordEncoder().encode(password));
     usuario.setActivo(1);
+    
+    repo.save(usuario);
   }
 
   public void validar(
@@ -71,6 +73,10 @@ public class UsuarioServicio implements UserDetailsService {
 
   public List<Usuario> listarUsuarios() {
     return repo.listarActivos();
+  }
+  
+  public List<Usuario> listar() {
+    return repo.findAll();
   }
 
   @Transactional

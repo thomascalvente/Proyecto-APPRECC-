@@ -27,7 +27,7 @@ public class UsuarioControlador {
 
   @GetMapping("/listar")
   public String listar(ModelMap modelo) {
-    List<Usuario> usuario = usuarioServicio.listarUsuarios();
+    List<Usuario> usuario = usuarioServicio.listar();
     modelo.addAttribute("usuarios", usuario);
     return "listarUsuarios.html";
   }
@@ -47,7 +47,7 @@ public class UsuarioControlador {
     } catch (MiException e) {
       modelo.put("error", e.getMessage());
 
-      return "user_form";
+      return "register";
     }
   }
 }
