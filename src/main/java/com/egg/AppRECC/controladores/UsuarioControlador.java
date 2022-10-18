@@ -24,6 +24,7 @@ public class UsuarioControlador {
     
     @PostMapping("/registro")
     public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
+            @RequestParam("password") String password,@RequestParam("password2") String password2, ModelMap modelo){
 
         try {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
@@ -31,6 +32,9 @@ public class UsuarioControlador {
             return "redirect:/";
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
-
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
+            return "user_form";
+        }
     }
 }
