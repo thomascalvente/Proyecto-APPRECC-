@@ -103,7 +103,7 @@ public class PortalControlador {
             return "redirect:/";
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
-            return "posteos_form.html";
+            return "/nuevo/publicar.html";
         }
     }
     
