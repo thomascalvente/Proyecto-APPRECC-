@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.egg.AppRECC.repositorios;
 
 import com.egg.AppRECC.entidades.Posteo;
@@ -12,10 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author PC
- */
 
 @Repository
 public interface PosteoRepositorio extends JpaRepository<Posteo, Long>{
@@ -28,5 +20,8 @@ public interface PosteoRepositorio extends JpaRepository<Posteo, Long>{
     
     @Query("SELECT n FROM Posteo n WHERE n.id = :id")
     public Posteo buscarPorId(@Param("id") Long id);
+    
+    @Query("SELECT n FROM Posteo n WHERE n.borrado!=true and n.cuerpo LIKE %:frase% ORDER BY n.fecha desc")
+    public List<Posteo> buscarPosteos(@Param("frase") String frase);
 
 }

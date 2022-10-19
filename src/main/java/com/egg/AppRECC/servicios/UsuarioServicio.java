@@ -1,6 +1,7 @@
 package com.egg.AppRECC.servicios;
 
 import com.egg.AppRECC.entidades.Usuario;
+import com.egg.AppRECC.enumeraciones.Rol;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.repositorios.UsuarioRepositorio;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class UsuarioServicio implements UserDetailsService {
     usuario.setEmail(email);
     usuario.setPassword(new BCryptPasswordEncoder().encode(password));
     usuario.setActivo(1);
+    usuario.setRol(Rol.GUEST);
     
     repo.save(usuario);
   }
@@ -50,7 +52,7 @@ public class UsuarioServicio implements UserDetailsService {
     String password2
   )
     throws MiException {
-    /*Usuario usuario = usuarioRepositorio.buscarPorEmail(email);*/
+    Usuario usuario = repo.encontrarUsuarioPorEmail(email);
 
     if (nombre.isEmpty() || nombre == null) {
       throw new MiException("El nombre no puede ser nulo o estar vacio");
@@ -66,9 +68,9 @@ public class UsuarioServicio implements UserDetailsService {
     if (!password.equals(password2)) {
       throw new MiException("Las contraseñas ingresadas deben ser iguales");
     }
-    /*if(usuario.getEmail().equals(email)){
+    if(usuario != null && usuario.getEmail().equals(email)){
             throw new MiException("El usuario que intenta registrar ya se encuentra registrado, intenta otro");
-        }*/
+        }
   }
 
   public List<Usuario> listarUsuarios() {
