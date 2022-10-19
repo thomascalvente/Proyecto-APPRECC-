@@ -98,7 +98,6 @@ h1 small {
 .menu {
     padding:0;
     margin:70px 0 0 0;
-    width:410px;
     float:right;
     background:#fcfdfe;
     border:1px solid #dfdfdf;
@@ -174,11 +173,21 @@ h1 small {
     color:#a2cf58;
     font-weight:bold;
 }
+
 .body_resize {
     margin:0 auto;
     padding:0;
     width:969px;
 }
+
+.body_resize2{
+    margin:0 auto;
+    padding:0;
+    display: block;
+    width: 50.8%;
+    background-color: black;
+}
+
 .body {
     margin:0;
     padding:0;
@@ -211,22 +220,27 @@ h1 small {
 .left {
     float:left;
     width:680px;
-    margin:0;
+    margin: auto;
     padding:0;
 }
+.left2{ <!-- solo inicio y publicar -->
+        display: block;
+        width:680px;
+        margin: auto;
+        padding:0;
+}
+
 .resize_bg {
     background:#fcfdfe;
     border:1px solid #d6d6d6;
     margin:10px 0;
     padding:10px;
 }
-.right { 
-    position: absolute;
-    top: 28em;
-    left: 73em;
-    float: right;
-    width: 275px;
-    margin: -8;
+.right {
+    float:right;
+    width:275px;
+    margin:0;
+    padding:0;
 }
 
 .right-sponsors{
@@ -432,30 +446,30 @@ p.response {
 
 .read-more-state {
     display: none;
-  }
-  
-  .read-more-target {
+}
+
+.read-more-target {
     opacity: 0;
     max-height: 0;
     font-size: 0;
     transition: .25s ease;
-  }
-  
-  .read-more-state:checked~.read-more-wrap .read-more-target {
+}
+
+.read-more-state:checked~.read-more-wrap .read-more-target {
     opacity: 1;
     font-size: inherit;
     max-height: 999em;
-  }
-  
-  .read-more-state~.read-more-trigger:before {
+}
+
+.read-more-state~.read-more-trigger:before {
     content: 'Ver más';
-  }
-  
-  .read-more-state:checked~.read-more-trigger:before {
+}
+
+.read-more-state:checked~.read-more-trigger:before {
     content: 'Ver menos';
-  }
-  
-  .read-more-trigger {
+}
+
+.read-more-trigger {
     cursor: pointer;
     display: inline-block;
     padding: 0 .5em;
@@ -464,7 +478,7 @@ p.response {
     line-height: 2;
     border: 1px solid #ddd;
     border-radius: .25em;
-  }
+}
 .apprecc {
     width: 251px;
     font-family: 'Proza Libre';

@@ -7,87 +7,20 @@
         <div class="main">
             <div th:replace="/fragments/cartel :: div"></div>
             <div class="body">
-                <div class="body_resize">
+                <div class="body_resize2">
+                    <div class="left2 navbar">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
                     <div th:replace="/fragments/posteos :: div"></div>
-                    <div class="right">
-                        <div class="resize_bg">
-                            <h2>Mejores de la semana:</h2>
-                            <ul class="sponsors">
-                                <li class="sponsors">
-                                    <a href="#">Lorem ipsum dolor</a>
-                                    <br />
-                                    Donec libero. Suspendisse bibendum
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Donec mattis</a>
-                                    <br />
-                                    Phasellus suscipit, leo a pharetra
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Dui pede condimentum</a>
-                                    <br />
-                                    Tellus eleifend magna eget
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Condimentum lorem</a>
-                                    <br />
-                                    Curabitur vel urna in tristique
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Fringilla velit magna</a>
-                                    <br />
-                                    Cras id urna orbi tincidunt orci ac
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Suspendisse bibendum</a>
-                                    <br />
-                                    purus nec placerat bibendum
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="right-sponsors">
-                        <div class="resize_bg">
-                            <h2>Nuestros Sponsors!</h2>
-                            <ul class="sponsors">
-                                <li class="sponsors">
-                                    <a href="#">Lorem ipsum dolor</a>
-                                    <br />
-                                    Donec libero. Suspendisse bibendum
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Donec mattis</a>
-                                    <br />
-                                    Phasellus suscipit, leo a pharetra
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Dui pede condimentum</a>
-                                    <br />
-                                    Tellus eleifend magna eget
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Condimentum lorem</a>
-                                    <br />
-                                    Curabitur vel urna in tristique
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Fringilla velit magna</a>
-                                    <br />
-                                    Cras id urna orbi tincidunt orci ac
-                                </li>
-                                <li class="sponsors">
-                                    <a href="#">Suspendisse bibendum</a>
-                                    <br />
-                                    purus nec placerat bibendum
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="clr"></div>
                 </div>
             </div>
 
         </div>
+        <footer th:replace="/fragments/footer :: div"></footer>
     </body>
 </html>
 

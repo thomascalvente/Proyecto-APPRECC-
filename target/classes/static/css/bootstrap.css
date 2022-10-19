@@ -2238,8 +2238,8 @@ progress {
 }
 
 .form-control {
-    display: block;
-    width: 100%;
+    display: unset;
+    width: 88%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -4017,13 +4017,12 @@ textarea.form-control-lg {
 }
 
 .navbar {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    position: static;
+    display: center;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    justify-content:  center;
+    padding-top: 1rem;
+    padding-bottom: 0rem;
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -4033,7 +4032,7 @@ textarea.form-control-lg {
 .navbar > .container-xl,
 .navbar > .container-xxl {
     display: flex;
-    flex-wrap: inherit;
+    flex-wrap:  wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -6660,7 +6659,7 @@ textarea.form-control-lg {
 }
 
 .w-100 {
-    width: 100% !important;
+    width: 969px !important;
 }
 
 .w-auto {
