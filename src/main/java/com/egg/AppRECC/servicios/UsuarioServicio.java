@@ -100,6 +100,26 @@ public class UsuarioServicio implements UserDetailsService {
       repo.save(usuario);
     }
   }
+  /***
+   * 
+   * @param id identificador único de usuario
+   * @param rol rol al cual se debe pasar el usuario
+   * 
+   * Descripción: recibe un id de usuario y si encuentra dicho usuario le 
+   * setea el rol que viene por parametro.
+   * El rol debe ser uno de los definidos en el enum
+   */
+  @Transactional
+  public void cambiarRol(String id, Rol rol) {
+    Optional<Usuario> respuesta = repo.findById(id);
+
+    if (respuesta.isPresent()) {
+      Usuario usuario = respuesta.get();
+      usuario.setRol(rol);
+
+      repo.save(usuario);
+    }
+  }
 
   @Transactional
   public void eliminar(String id) {
