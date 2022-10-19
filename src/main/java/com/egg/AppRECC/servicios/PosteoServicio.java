@@ -76,6 +76,13 @@ public class PosteoServicio {
         return posteo;
     }
     
+    public List<Posteo> buscarPosteos(String frase){
+         List<Posteo> posteos = new ArrayList();
+         posteos = posteorepositorio.buscarPosteos(frase);
+         
+         return posteos;
+    }
+    
     @Transactional
     public void borrar(Long id, LocalDate fecha){
         Optional<Posteo> respuesta = posteorepositorio.findById(id);
