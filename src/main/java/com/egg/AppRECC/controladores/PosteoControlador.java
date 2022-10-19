@@ -35,7 +35,7 @@ public class PosteoControlador {
     @GetMapping("/nuevo/publicar")
     public String actividades() {
         
-        return "/nuevo/publicar.html";
+        return "posteos_form.html";
     }
     
     @GetMapping("/detalle/{id}")
