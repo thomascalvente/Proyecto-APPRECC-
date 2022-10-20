@@ -140,7 +140,7 @@ h1 small {
 }
 .headert_text_resize img {
     margin:0;
-    padding:26px 0 0 30px;
+    padding:45px 0 0 30px;
     float:left;
 }
 .headert_text {
@@ -181,11 +181,12 @@ h1 small {
 }
 
 .body_resize2{
+    width:969px;
+    padding:3%;
     margin:0 auto;
-    padding:0;
-    display: block;
-    width: 50.8%;
-    background-color: black;
+    background: #c0c0c0;
+    height:auto;
+    text-align: center;
 }
 
 .body {
@@ -209,7 +210,7 @@ h1 small {
     line-height:1.8em;
 }
 .body img {
-    float:left;
+    float: bottom;
     margin:5px;
     padding:0;
 }
@@ -223,11 +224,34 @@ h1 small {
     margin: auto;
     padding:0;
 }
-.left2{ <!-- solo inicio y publicar -->
-        display: block;
-        width:680px;
-        margin: auto;
-        padding:0;
+.left1{
+    width:700px;
+    padding:0;
+    margin: auto;
+    height: auto;
+    text-align: center;
+}
+
+.left2{ 
+    padding:0;
+    width:855px;
+    background: #c0c0c0;
+    text-align: center;
+}
+
+.left3{
+    padding: 0;
+    background: #c0c0c0;
+    text-align: center;
+    width: 969px;
+}
+
+.left4{
+    padding: 0;
+    margin:0 auto;
+    background: #c0c0c0;
+    text-align: center;
+    width: 969px;
 }
 
 .resize_bg {
@@ -583,4 +607,13 @@ h2 {
 .login-register-imagen1 {
     width: 70px;
     height: 70px;
+}
+
+.formulario{
+    width:969px;
+    padding:3%;
+    margin:0 auto;
+    background: #c0c0c0;
+    height:320px;
+    text-align: center;
 }
