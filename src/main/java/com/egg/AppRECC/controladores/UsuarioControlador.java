@@ -20,11 +20,6 @@ public class UsuarioControlador {
   @Autowired
   private UsuarioServicio usuarioServicio;
 
-  @GetMapping("/registrar")
-  public String registrar() {
-    return "register.html";
-  }
-
   @GetMapping("/listar")
   public String listar(ModelMap modelo) {
     List<Usuario> usuario = usuarioServicio.listar();
@@ -32,22 +27,4 @@ public class UsuarioControlador {
     return "listarUsuarios.html";
   }
 
-  @PostMapping("/registro")
-  public String registro(
-    @RequestParam("nombre") String nombre,
-    @RequestParam("email") String email,
-    @RequestParam("password") String password,
-    @RequestParam("password2") String password2,
-    ModelMap modelo
-  ) {
-    try {
-      usuarioServicio.crearUsuario(nombre, email, password, password2);
-      modelo.put("exito", "El usuario se creo correctamente");
-      return "redirect:/";
-    } catch (MiException e) {
-      modelo.put("error", e.getMessage());
-
-      return "register";
-    }
-  }
 }

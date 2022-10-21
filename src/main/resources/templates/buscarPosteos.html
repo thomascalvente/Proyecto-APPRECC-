@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- INICIO -->
+    <body >
+
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body_resize">
+                <table class="table table-striped">
+                    <thead >
+                        <tr class="">
+                            <th class="" scope="col">Titulo</th>
+                            <th class="" scope="col">Cuerpo</th>
+                            <th class="" scope="col">Imagen</th>
+                        </tr>
+                    </thead>
+                    <tbody class="" th:each="posteos : ${posteos}">
+                        <tr>
+                            
+                            <th class="" th:text="${posteos.titulo}"></th>
+                            <th class="" th:text="${posteos.cuerpo}"></th>
+                            <th class="" th:href="@{'data:image/jpeg;base64,'+${posteos.imagen}}"></th>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

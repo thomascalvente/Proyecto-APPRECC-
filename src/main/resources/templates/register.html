@@ -13,7 +13,7 @@ and open the template in the editor.
                 <img src="/img/mundo.png" class="imagen1" />
             </div>
             <form id="form" class="login-register-form" enctype="multipart/form-data"
-                  th:action="@{/usuario/registro}" method="POST">
+                  th:action="@{/registro}" method="POST">
                 <div th:if="${error != null}" class="card text-white bg-danger mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Error</h5>
@@ -35,7 +35,7 @@ and open the template in the editor.
                         type="text"
                         name="nombre" th:value="*{nombre}" placeholder="nombre"
                         />
-                    <small>Error Message</small>
+                    
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -43,7 +43,7 @@ and open the template in the editor.
                         type="email"
                         name="email" th:value="*{email}" placeholder="email"
                         />
-                    <small>Error Message</small>
+                    
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -52,7 +52,7 @@ and open the template in the editor.
                         id="password"
                         name="password" th:value="*{password}" placeholder="password"
                         />
-                    <small>Error Message</small>
+                    
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -62,9 +62,10 @@ and open the template in the editor.
                         placeholder="Repetir contraseña"
                         name="password2" th:value="*{password2}" 
                         />
-                    <small>Error Message</small>
+                    
                 </div>
                 <button name="boton" type="submit">Registrarse</button>
+                <a class="btn btn-secondary botonRegresar" th:href="@{/}">Volver a Inicio</a>
             </form>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
