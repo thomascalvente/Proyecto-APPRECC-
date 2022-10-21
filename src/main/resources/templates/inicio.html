@@ -9,9 +9,9 @@
             <div class="body">
                 <div class="body_resize2">
                     <div class="left2 navbar">
-                        <form class="form-inline left1 my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <form th:action="@{/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
                     </div>
                     <div th:replace="/fragments/posteos :: div"></div>

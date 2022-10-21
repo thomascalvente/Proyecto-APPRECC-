@@ -32,7 +32,7 @@ public class PosteoControlador {
     @Autowired
     private PosteoServicio posteoServicio;
     
-    @GetMapping("/nuevo/publicar")
+    @GetMapping("/publicar")
     public String actividades() {
         
         return "posteos_form.html";

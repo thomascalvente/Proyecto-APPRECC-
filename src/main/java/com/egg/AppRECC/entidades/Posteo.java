@@ -28,7 +28,7 @@ public class Posteo {
     
     private String titulo;
     
-    @Column(length = 1000)
+    @Column(length = 10000)
     private String cuerpo;
     
     private boolean borrado = false;

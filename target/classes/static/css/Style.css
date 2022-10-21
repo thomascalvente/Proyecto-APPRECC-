@@ -183,8 +183,8 @@ h1 small {
 .body_resize2{
     width:969px;
     padding:3%;
+    background-color: #c0c0c0;
     margin:0 auto;
-    background: #c0c0c0;
     height:auto;
     text-align: center;
 }
@@ -616,4 +616,9 @@ h2 {
     background: #c0c0c0;
     height:320px;
     text-align: center;
+}
+
+.botonRegresar{
+    width: 50%;
+    margin-left: 65px;
 }
