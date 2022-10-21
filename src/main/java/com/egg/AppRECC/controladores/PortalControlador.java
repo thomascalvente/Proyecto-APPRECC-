@@ -76,20 +76,18 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
-    public String login(ModelMap modelo) { //localhost:8080/
-
+    public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/   
+        if (error != null) {
+            modelo.put("error", "Usuario o Contraseña invalidos");
+        }
         List<Posteo> posteos = posteoServicio.listarPosteos();
         modelo.addAttribute("posteos", posteos);
 
         return "login.html";
     }
 
-    @GetMapping("/register")
-    public String register(ModelMap modelo) { //localhost:8080/
-
-        List<Posteo> posteos = posteoServicio.listarPosteos();
-        modelo.addAttribute("posteos", posteos);
-
+    @GetMapping("/registrar")
+    public String registrar() {
         return "register.html";
     }
 
@@ -134,22 +132,16 @@ public class PortalControlador {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
-        } catch (MiException e) {
-            modelo.put("error", e.getMessage());
-
-            return "register";
+        } catch (MiException ex) {
+            modelo.put("error", ex.getMessage());
+            return "register.html";
         }
     }
 
-    @GetMapping("/registrar")
-    public String registrar() {
-        return "register.html";
-    }
-    
     @PostMapping("/buscar")
-    public String buscar(@RequestParam("frase") String frase, ModelMap modelo ) {
-            List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
-            modelo.addAttribute("posteos", posteos);
+    public String buscar(@RequestParam("frase") String frase, ModelMap modelo) {
+        List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
+        modelo.addAttribute("posteos", posteos);
         return "buscarPosteos.html";
     }
 }

@@ -27,13 +27,14 @@ public class UsuarioServicio implements UserDetailsService {
   private UsuarioRepositorio repo;
 
   public void crearUsuario(
+          
     String nombre,
     String email,
     String password,
     String password2
   )
     throws MiException {
-    validar(nombre, email, password, password2);
+    if(validar(nombre, email, password, password2)){
 
     Usuario usuario = new Usuario();
     usuario.setNombre(nombre);
@@ -43,9 +44,9 @@ public class UsuarioServicio implements UserDetailsService {
     usuario.setRol(Rol.GUEST);
     
     repo.save(usuario);
-  }
+  }}
 
-  public void validar(
+  public boolean validar(
     String nombre,
     String email,
     String password,
@@ -54,24 +55,24 @@ public class UsuarioServicio implements UserDetailsService {
     throws MiException {
     Usuario usuario = repo.encontrarUsuarioPorEmail(email);
 
-    if (nombre.isEmpty() || nombre == null) {
+    if (nombre.isEmpty() || nombre == null || nombre.equals("")) {
       throw new MiException("El nombre no puede ser nulo o estar vacio");
-    }
-    if (email.isEmpty() || email == null) {
+    } 
+    if (email.isEmpty() || email == null || email.equals("")) {
       throw new MiException("El email no puede ser nulo o estar vacio");
-    }
+    }  
     if (password.isEmpty() || password == null || password.length() <= 5) {
       throw new MiException(
         "La contraseña no puede estar vacia, y debe tener mas de 5 digitos"
       );
-    }
+    } 
     if (!password.equals(password2)) {
       throw new MiException("Las contraseñas ingresadas deben ser iguales");
-    }
+    } 
     if(usuario != null && usuario.getEmail().equals(email)){
             throw new MiException("El usuario que intenta registrar ya se encuentra registrado, intenta otro");
-        }
-  }
+        } return true;
+  } 
 
   public List<Usuario> listarUsuarios() {
     return repo.listarActivos();

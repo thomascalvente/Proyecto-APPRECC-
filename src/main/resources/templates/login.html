@@ -7,22 +7,28 @@ and open the template in the editor.
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace= "/fragments/head :: head" ></head>
     <body class="login-register-body">
-        
+
         <main>
             <div style="text-align: center ">
-                <img src="/img/mundo.png" class="imagen1" />
+                <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
-            <form id="form" class="login-register-form">
-                <h2>Iniciar Sesión!</h2>
-                
+            
+            <form th:action="@{/logincheck}" method="POST" id="form" class="login-register-form">
+                <div class="login-register-apprec">
+                    <h1>
+                        <div>
+                            <span>AppReCC</span>
+                        </div>
+                    </h1>
+                </div>
+
                 <div class="login-register-form-control">
                     <input
                         class="login-register-letra-tamanio"
                         type="text"
                         id="email"
                         placeholder="Email"
-                        />
-                    <small>Error Message</small>
+                        />                   
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -31,13 +37,13 @@ and open the template in the editor.
                         id="password"
                         placeholder="Contraseña"
                         />
-                    <small>Error Message</small>
                 </div>
-            
-                <button>Log In</button>
+
+                <button>Iniciar Sesión</button>
                 <a class="btn btn-secondary" th:href="@{/}">Volver</a>
                 <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
             </form>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
     </body>
