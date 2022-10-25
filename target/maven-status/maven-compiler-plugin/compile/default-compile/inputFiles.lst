@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\controladores\AdminControlador.java
->>>>>>> Desarrollo
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\excepciones\MiException.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\repositorios\PosteoRepositorio.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\AppReccApplication.java
@@ -9,16 +6,11 @@ C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\ser
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\controladores\PosteoControlador.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\controladores\UsuarioControlador.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\enumeraciones\Rol.java
-<<<<<<< HEAD
-C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\entidades\Posteo.java
-C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\repositorios\UsuarioRepositorio.java
-=======
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\entidades\Campania.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\entidades\Posteo.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\repositorios\UsuarioRepositorio.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\servicios\CampaniaServicio.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\repositorios\CampaniaRepositorio.java
->>>>>>> Desarrollo
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\controladores\PortalControlador.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\entidades\Usuario.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\servicios\PosteoServicio.java
