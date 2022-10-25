@@ -6,6 +6,7 @@
 package com.egg.AppRECC.controladores;
 
 import com.egg.AppRECC.entidades.Posteo;
+import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
@@ -76,6 +77,7 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
+<<<<<<< HEAD
     public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/
 
         if(error != null){
@@ -85,6 +87,22 @@ public class PortalControlador {
         return "login.html";
     }
     
+=======
+    public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/   
+        if (error != null) {
+            modelo.put("error", "Usuario o Contraseña invalidos");
+        }
+        
+
+        return "login.html";
+    }
+
+    @GetMapping("/registrar")
+    public String registrar() {
+        return "register.html";
+    }
+
+>>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
     @PostMapping("/")
     public String Index(@RequestParam("titulo") String titulo,
             @RequestParam("cuerpo") String cuerpo, @RequestParam("file") MultipartFile imagen, ModelMap modelo) {
@@ -126,22 +144,29 @@ public class PortalControlador {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
+<<<<<<< HEAD
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
 
+=======
+        } catch (MiException ex) {
+            modelo.put("error", ex.getMessage());
+>>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
             return "register.html";
         }
     }
 
-    @GetMapping("/registrar")
-    public String registrar() {
-        return "register.html";
+    @PostMapping("/buscar")
+    public String buscar(@RequestParam("frase") String frase, ModelMap modelo) {
+        List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
+        modelo.addAttribute("posteos", posteos);
+        return "buscarPosteos.html";
     }
     
-    @PostMapping("/buscar")
-    public String buscar(@RequestParam("frase") String frase, ModelMap modelo ) {
-            List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
-            modelo.addAttribute("posteos", posteos);
-        return "buscarPosteos.html";
+    @GetMapping("/listar")
+    public String listar(ModelMap modelo) {
+        List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+        modelo.addAttribute("usuarios", usuarios);
+        return "listarUsuarios.html";
     }
 }
