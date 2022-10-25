@@ -10,30 +10,23 @@ and open the template in the editor.
 
         <main>
             <div style="text-align: center ">
-                <img src="/img/mundo.png" class="imagen1" />
+                <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
             <form id="form" class="login-register-form" enctype="multipart/form-data"
                   th:action="@{/registro}" method="POST">
-                <div th:if="${error != null}" class="card text-white bg-danger mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Error</h5>
-                        <p class="card-text" th:text="${error}"></p>
-                    </div>    
-                </div>
-
                 
-                <div th:if="${exito != null}" class="card text-white bg-success mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Exito</h5>
-                        <p class="card-text" th:text="${exito}"></p>
-                    </div>
-                </div> 
-                <h2>Registrate!</h2>
+                <div class="login-register-apprec">
+                    <h1>
+                        <div>
+                            <span>AppReCC</span>
+                        </div>
+                    </h1>
+                </div>
                 <div class="login-register-form-control">
                     <input
                         class="login-register-letra-tamanio"
                         type="text"
-                        name="nombre" th:value="*{nombre}" placeholder="nombre"
+                        name="nombre" th:value="*{nombre}" placeholder="Nombre"
                         />
                     
                 </div>
@@ -67,6 +60,7 @@ and open the template in the editor.
                 <button name="boton" type="submit">Registrarse</button>
                 <a class="btn btn-secondary botonRegresar" th:href="@{/}">Volver a Inicio</a>
             </form>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
     </body>

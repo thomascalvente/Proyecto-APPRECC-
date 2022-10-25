@@ -3059,8 +3059,9 @@ textarea.form-control-lg {
 
 .btn-secondary {
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #055160;
+    margin: 15px;
+    border-radius: 9px;    
 }
 .btn-secondary:hover {
     color: #fff;
@@ -7460,7 +7461,7 @@ textarea.form-control-lg {
 }
 
 .text-muted {
-    color: #6c757d !important;
+    color: #000 !important;
 }
 
 .text-black-50 {
