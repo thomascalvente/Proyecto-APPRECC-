@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\controladores\AdminControlador.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\excepciones\MiException.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\repositorios\PosteoRepositorio.java
@@ -16,19 +15,3 @@ C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\con
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\entidades\Usuario.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\servicios\PosteoServicio.java
 C:\Users\PC\Documents\NetBeansProjects\AppRECC\src\main\java\com\egg\AppRECC\SeguridadWeb.java
-=======
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\servicios\PosteoServicio.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\enumeraciones\Rol.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\AppReccApplication.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\entidades\Posteo.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\excepciones\MiException.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\controladores\PosteoControlador.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\controladores\AdminControlador.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\controladores\PortalControlador.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\controladores\UsuarioControlador.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\repositorios\PosteoRepositorio.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\repositorios\UsuarioRepositorio.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\SeguridadWeb.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\servicios\UsuarioServicio.java
-C:\Users\Marina\Documents\GitHub\Proyecto-APPRECC-\Proyecto-APPREP\Proyecto-APPRECC-\src\main\java\com\egg\AppRECC\entidades\Usuario.java
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1

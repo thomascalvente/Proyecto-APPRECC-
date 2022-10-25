@@ -35,7 +35,6 @@
                     </thead>
                     <tbody class="" th:each="usuario : ${usuarios}">
                         <tr>
-<<<<<<< HEAD
                             <th class="" th:text="${usuario.id}"></th>
                             <th class="" th:text="${usuario.nombre}"></th>
                             <th class="" th:text="${usuario.email}"></th>
@@ -53,19 +52,19 @@
                                             </div>
                                         </div>
                                         <div class="modal-body">
-                                         Está seguro que desea cambiar el rol del usuario?
-                                          <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
+                                            Está seguro que desea cambiar el rol del usuario?
+                                            <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
                                         </div>
                                         <div class="modal-footer">
-                                          <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                          <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{ADMIN}(id = ${usuario.id}, ADMIN = ${usuario.rol.ADMIN})}">Rol ADMIN</a>
-                                          <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{USER}(id = ${usuario.id}, USER = ${usuario.rol.USER})}">Rol USER</a>
-                                          <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{GUEST}(id = ${usuario.id}, GUEST = ${usuario.rol.GUEST})}">Rol GUEST</a>
+                                            <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
+                                            <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{ADMIN}(id = ${usuario.id}, ADMIN = ${usuario.rol.ADMIN})}">Rol ADMIN</a>
+                                            <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{USER}(id = ${usuario.id}, USER = ${usuario.rol.USER})}">Rol USER</a>
+                                            <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{GUEST}(id = ${usuario.id}, GUEST = ${usuario.rol.GUEST})}">Rol GUEST</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <div class="modal fade" th:id="*{'exampleModal2'+{usuario.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                 <div class="modal-dialog  modal-dialog-centered">
@@ -77,71 +76,17 @@
                                             </div>
                                         </div>
                                         <div class="modal-body">
-                                         Está seguro que desea borrar el usuario?
-                                          <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
+                                            Está seguro que desea borrar el usuario?
+                                            <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
                                         </div>
                                         <div class="modal-footer">
-                                          <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                          <a type= "button" class= "btn btn-primary" th:href="@{/admin/eliminar/}+${usuario.id}">Borrar usuario</a>
+                                            <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
+                                            <a type= "button" class= "btn btn-primary" th:href="@{/admin/eliminar/}+${usuario.id}">Borrar usuario</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </tr>
-=======
-                            <th class="" scope="row"></th>
-                            <th class="" th:text="${usuarios.id}"></th>
-                            <th class="" th:text="${usuarios.nombre}"></th>
-                            <th class="" th:text="${usuarios.email}"></th>
-                            <th class="" th:text="${usuarios.rol}"></th>
-                            <th><a type="button" class="btn btn-success" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal'+*{usuarios.id}">Modificar</a></th>
-                            <th><a type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal2'+*{usuarios.id}">Borrar</a></th>
-                    <div class="modal fade" th:id="*{'exampleModal'+{usuarios.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog  modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class= "modal-header">
-                                    <h5 class= "modal-title" id="exampleModalLongTitle" >Confirm Update</h5>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn-close btn-xl" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    Está seguro que desea cambiar el rol del usuario?
-                                    <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
-                                </div>
-                                <div class="modal-footer">
-                                    <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                    <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{ADMIN}(id = ${usuarios.id}, ADMIN = ${usuarios.rol.ADMIN})}">Rol ADMIN</a>
-                                    <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{USER}(id = ${usuarios.id}, USER = ${usuarios.rol.USER})}">Rol USER</a>
-                                    <a type= "button" class= "btn btn-primary" th:href="@{/admin/modificar/{id}/{GUEST}(id = ${usuarios.id}, GUEST = ${usuarios.rol.GUEST})}">Rol GUEST</a>
-                                </div>
-                            </div>
-                        </div>
-                                  </div>
-                    <div class="modal fade" th:id="*{'exampleModal2'+{usuarios.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                        <div class="modal-dialog  modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class= "modal-header">
-                                    <h5 class= "modal-title" id="exampleModalLongTitle" >Confirm Delete</h5>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn-close btn-xl" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    Está seguro que desea borrar el usuario?
-                                    <input type= "hidden" id="userIdHiddenInput" name= "userIdHiddenInput"/>
-                                </div>
-                                <div class="modal-footer">
-                                    <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                    <a type= "button" class= "btn btn-primary" th:href="@{/admin/eliminar/}+${usuarios.id}">Borrar usuario</a>
-                                </div>
-                            </div>
-                        </div>
-                                  </div>
-                    </tr>
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
                     </tbody>
                 </table>
 
@@ -149,10 +94,6 @@
             </div>
 
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
         <footer th:replace="/fragments/footer :: div"></footer>
     </body>
 

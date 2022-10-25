@@ -77,17 +77,6 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
-<<<<<<< HEAD
-    public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/
-
-        if(error != null){
-            modelo.put("error", "Usuario o Contraseña invalidos");
-        }
-
-        return "login.html";
-    }
-    
-=======
     public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/   
         if (error != null) {
             modelo.put("error", "Usuario o Contraseña invalidos");
@@ -102,7 +91,6 @@ public class PortalControlador {
         return "register.html";
     }
 
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
     @PostMapping("/")
     public String Index(@RequestParam("titulo") String titulo,
             @RequestParam("cuerpo") String cuerpo, @RequestParam("file") MultipartFile imagen, ModelMap modelo) {
@@ -111,13 +99,12 @@ public class PortalControlador {
 
             modelo.put("exito", "la actividad se cargo correctamente");
 
-            List<Posteo> posteos = posteoServicio.listarPosteos();
-
-            modelo.addAttribute("posteos", posteos);
 
             return "redirect:/";
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
+            modelo.put("titulo", titulo);
+            modelo.put("cuerpo", cuerpo);
             return "publicar.html";
         }
     }
@@ -144,14 +131,11 @@ public class PortalControlador {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
-<<<<<<< HEAD
+
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
-
-=======
-        } catch (MiException ex) {
-            modelo.put("error", ex.getMessage());
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
             return "register.html";
         }
     }

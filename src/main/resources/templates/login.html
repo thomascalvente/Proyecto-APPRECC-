@@ -9,35 +9,16 @@ and open the template in the editor.
     <body class="login-register-body">
 
         <main>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <div style="text-align: center ">
                 <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
-<<<<<<< HEAD
 
-            <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
-                <div class="card-body">
-                    <h5 class="card-title">Error</h5>
-                    <p class="card-text" th:text="${error}"></p>
-                </div>    
-            </div>
-
-            <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
-                <div class="card-body">
-                    <h5 class="card-title">Exito</h5>
-                    <p class="card-text" th:text="${exito}"></p>
-                </div>
-            </div>
-            
-            
-            
             <form id="form" th:action="@{/logincheck}" method="POST" class="login-register-form">
 
 
 
-                <h2>Iniciar Sesión!</h2>
-=======
-            
-            <form th:action="@{/logincheck}" method="POST" id="form" class="login-register-form">
+                
                 <div class="login-register-apprec">
                     <h1>
                         <div>
@@ -45,7 +26,6 @@ and open the template in the editor.
                         </div>
                     </h1>
                 </div>
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
 
                 <div class="login-register-form-control">
                     <input
@@ -53,40 +33,28 @@ and open the template in the editor.
                         type="email"
                         name="email"
                         id="email"
-                        name="email"
                         placeholder="Email"
-<<<<<<< HEAD
-                        />
-=======
-                        />                   
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
+                        />                  
                 </div>
                 <div class="login-register-form-control">
                     <input
-                        class="login-register-letra-tamanio"
+                        class="login-register-letra-tamanio password-container"
                         type="password"
                         name="password"
                         id="password"
-                        name="password"
                         placeholder="Contraseña"
-                        />
+                    />
+                    <i class="fa-solid fa-eye" id="eye"></i>
                 </div>
-<<<<<<< HEAD
                 <button type="submit">Log In</button>
             </form>
 
             <a class="btn btn-secondary" th:href="@{/}">Volver</a>
             <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
 
-=======
-
-                <button type="submit">Iniciar Sesión</button>
-                <a class="btn btn-secondary" th:href="@{/}">Volver</a>
-                <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
-            </form>
-            <div th:replace="/fragments/mensajes :: mensaje"></div>
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
+            
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
+        <script src="/js/script.js"></script>
     </body>
 </html>

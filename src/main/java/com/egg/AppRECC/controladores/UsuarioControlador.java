@@ -22,13 +22,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/inicio")
 public class UsuarioControlador {
-<<<<<<< HEAD
-=======
+
   @Autowired
   private UsuarioServicio usuarioServicio;
-  @Autowired
-  private PosteoServicio posteosServicio;
->>>>>>> ae94473c5c8c48e2dc38a86fb1c7a60211f386d1
+
 
   
   @Autowired
@@ -48,23 +45,6 @@ public class UsuarioControlador {
         List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
         modelo.addAttribute("posteos", posteos);
         
-        return "inicio.html";
-    }
-  
-
-
-  @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_GUEST')")
-    @GetMapping("")
-    public String inicio(HttpSession session, ModelMap modelo) {
-        
-        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
-        
-        if(logueado.getRol().toString().equals("ADMIN")){
-            return "redirect:/admin/dashboard";
-        }
-        
-        List<Posteo> posteos = posteosServicio.listarPosteosBorrados();
-        modelo.addAttribute("posteos", posteos);
         return "inicio.html";
     }
     
