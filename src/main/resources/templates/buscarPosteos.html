@@ -7,7 +7,7 @@
         <div class="main">
             <div th:replace="/fragments/cartel :: div"></div>
             <div class="body_resize">
-                <table class="table table-striped">
+                <table class="table table-success table-hover text-center">
                     <thead >
                         <tr class="">
                             <th class="" scope="col">Titulo</th>
@@ -16,13 +16,17 @@
                         </tr>
                     </thead>
                     <tbody class="" th:each="posteos : ${posteos}">
+
                         <tr>
                             
-                            <th class="" th:text="${posteos.titulo}"></th>
-                            <th class="" th:text="${posteos.cuerpo}"></th>
-                            <th class="" th:href="@{'data:image/jpeg;base64,'+${posteos.imagen}}"></th>
+                            <th class="lista" th:text="${posteos.titulo}"></th>
+                            <th class="lista" th:text="${posteos.cuerpo}"></th>
+                            
+                            <th class="lista"><a th:href="@{/posteos/detalle/} + ${posteos.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteos.imagen}}" width="30%"></img></a></th>
                             
                         </tr>
+
+
                     </tbody>
                 </table>
             </div>

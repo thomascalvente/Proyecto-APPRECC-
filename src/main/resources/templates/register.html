@@ -9,31 +9,25 @@ and open the template in the editor.
     <body class="login-register-body">
 
         <main>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <div style="text-align: center ">
-                <img src="/img/mundo.png" class="imagen1" />
+                <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
             <form id="form" class="login-register-form" enctype="multipart/form-data"
                   th:action="@{/registro}" method="POST">
-                <div th:if="${error != null}" class="card text-white bg-danger mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Error</h5>
-                        <p class="card-text" th:text="${error}"></p>
-                    </div>    
-                </div>
-
                 
-                <div th:if="${exito != null}" class="card text-white bg-success mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Exito</h5>
-                        <p class="card-text" th:text="${exito}"></p>
-                    </div>
-                </div> 
-                <h2>Registrate!</h2>
+                <div class="login-register-apprec">
+                    <h1>
+                        <div>
+                            <span>AppReCC</span>
+                        </div>
+                    </h1>
+                </div>
                 <div class="login-register-form-control">
                     <input
                         class="login-register-letra-tamanio"
                         type="text"
-                        name="nombre" th:value="*{nombre}" placeholder="nombre"
+                        name="nombre" th:value="*{nombre}" placeholder="Nombre"
                         />
                     
                 </div>
@@ -50,8 +44,9 @@ and open the template in the editor.
                         class="login-register-letra-tamanio"
                         type="password"
                         id="password"
-                        name="password" th:value="*{password}" placeholder="password"
+                        name="password" th:value="*{password}" placeholder="Contraseña"
                         />
+                    <i class="fa-solid fa-eye" id="eye"></i>
                     
                 </div>
                 <div class="login-register-form-control">
@@ -62,6 +57,7 @@ and open the template in the editor.
                         placeholder="Repetir contraseña"
                         name="password2" th:value="*{password2}" 
                         />
+                    <i class="fa-solid fa-eye" id="eye2"></i>
                     
                 </div>
                 <button name="boton" type="submit">Registrarse</button>
@@ -69,5 +65,7 @@ and open the template in the editor.
             </form>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
+        
+        <script src="/js/script.js"></script>
     </body>
 </html>
