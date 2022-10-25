@@ -9,6 +9,29 @@ html {
     padding:0;
     margin:0;
 }
+
+.lista{
+    text-align: center;
+    width: 33%;
+}
+
+.password-container{
+  position: relative;
+}
+.password-container input[type="password"],
+.password-container input[type="text"]{
+  width: 100%;
+  padding: 12px 36px 12px 12px;
+  box-sizing: border-box;
+}
+.fa-eye{
+  position: absolute;
+  top: 20%;
+  right: 6%;
+  cursor: pointer;
+  color: #97c950;
+}
+
 li.bg, .bg {
     clear:both;
     padding:0;
@@ -145,8 +168,7 @@ h1 small {
 .headert_text {
     width: 483px;
     float: right;
-    margin: -24px;
-    padding: 61px 75px 67px 0px;
+    padding: 30px;
     text-align: center;
 }
 .headert_text h2 {

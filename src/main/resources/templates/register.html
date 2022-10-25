@@ -9,6 +9,7 @@ and open the template in the editor.
     <body class="login-register-body">
 
         <main>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <div style="text-align: center ">
                 <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
@@ -43,8 +44,9 @@ and open the template in the editor.
                         class="login-register-letra-tamanio"
                         type="password"
                         id="password"
-                        name="password" th:value="*{password}" placeholder="password"
+                        name="password" th:value="*{password}" placeholder="Contraseña"
                         />
+                    <i class="fa-solid fa-eye" id="eye"></i>
                     
                 </div>
                 <div class="login-register-form-control">
@@ -55,13 +57,15 @@ and open the template in the editor.
                         placeholder="Repetir contraseña"
                         name="password2" th:value="*{password2}" 
                         />
+                    <i class="fa-solid fa-eye" id="eye2"></i>
                     
                 </div>
                 <button name="boton" type="submit">Registrarse</button>
                 <a class="btn btn-secondary botonRegresar" th:href="@{/}">Volver a Inicio</a>
             </form>
-            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
+        
+        <script src="/js/script.js"></script>
     </body>
 </html>

@@ -9,11 +9,16 @@ and open the template in the editor.
     <body class="login-register-body">
 
         <main>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
             <div style="text-align: center ">
                 <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
-            
-            <form th:action="@{/logincheck}" method="POST" id="form" class="login-register-form">
+
+            <form id="form" th:action="@{/logincheck}" method="POST" class="login-register-form">
+
+
+
+                
                 <div class="login-register-apprec">
                     <h1>
                         <div>
@@ -25,28 +30,31 @@ and open the template in the editor.
                 <div class="login-register-form-control">
                     <input
                         class="login-register-letra-tamanio"
-                        type="text"
-                        id="email"
+                        type="email"
                         name="email"
+                        id="email"
                         placeholder="Email"
-                        />                   
+                        />                  
                 </div>
                 <div class="login-register-form-control">
                     <input
-                        class="login-register-letra-tamanio"
+                        class="login-register-letra-tamanio password-container"
                         type="password"
-                        id="password"
                         name="password"
+                        id="password"
                         placeholder="Contraseña"
-                        />
+                    />
+                    <i class="fa-solid fa-eye" id="eye"></i>
                 </div>
-
-                <button type="submit">Iniciar Sesión</button>
-                <a class="btn btn-secondary" th:href="@{/}">Volver</a>
-                <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
+                <button type="submit">Log In</button>
             </form>
-            <div th:replace="/fragments/mensajes :: mensaje"></div>
+
+            <a class="btn btn-secondary" th:href="@{/}">Volver</a>
+            <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
+
+            
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
+        <script src="/js/script.js"></script>
     </body>
 </html>

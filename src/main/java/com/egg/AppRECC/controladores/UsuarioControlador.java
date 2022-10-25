@@ -2,6 +2,7 @@ package com.egg.AppRECC.controladores;
 
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.entidades.Usuario;
+import com.egg.AppRECC.enumeraciones.Rol;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
@@ -13,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,19 +22,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/inicio")
 public class UsuarioControlador {
+
   @Autowired
   private UsuarioServicio usuarioServicio;
+
+
+  
   @Autowired
-  private PosteoServicio posteosServicio;
-
-  @GetMapping("/listar")
-  public String listar(ModelMap modelo) {
-    List<Usuario> usuario = usuarioServicio.listar();
-    modelo.addAttribute("usuarios", usuario);
-    return "listarUsuarios.html";
-  }
-
-  @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_GUEST')")
+  private PosteoServicio posteoServicio;
+  
+  
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_GUEST')")
     @GetMapping("")
     public String inicio(HttpSession session, ModelMap modelo) {
         
@@ -42,8 +42,9 @@ public class UsuarioControlador {
             return "redirect:/admin/dashboard";
         }
         
-        List<Posteo> posteos = posteosServicio.listarPosteosBorrados();
+        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
         modelo.addAttribute("posteos", posteos);
+        
         return "inicio.html";
     }
     

@@ -99,13 +99,12 @@ public class PortalControlador {
 
             modelo.put("exito", "la actividad se cargo correctamente");
 
-            List<Posteo> posteos = posteoServicio.listarPosteos();
-
-            modelo.addAttribute("posteos", posteos);
 
             return "redirect:/";
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
+            modelo.put("titulo", titulo);
+            modelo.put("cuerpo", cuerpo);
             return "publicar.html";
         }
     }
@@ -132,8 +131,11 @@ public class PortalControlador {
             usuarioServicio.crearUsuario(nombre, email, password, password2);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
-        } catch (MiException ex) {
-            modelo.put("error", ex.getMessage());
+
+        } catch (MiException e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
             return "register.html";
         }
     }
