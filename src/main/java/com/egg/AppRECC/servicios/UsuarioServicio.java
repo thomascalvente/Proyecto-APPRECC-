@@ -53,7 +53,7 @@ public class UsuarioServicio implements UserDetailsService {
     String password2
   )
     throws MiException {
-    Usuario usuario = repo.encontrarUsuarioPorEmail(email);
+    // Usuario usuario = repo.encontrarUsuarioPorEmail(email);
 
     if (nombre.isEmpty() || nombre == null || nombre.equals("")) {
       throw new MiException("El nombre no puede ser nulo o estar vacio");
@@ -69,9 +69,9 @@ public class UsuarioServicio implements UserDetailsService {
     if (!password.equals(password2)) {
       throw new MiException("Las contraseñas ingresadas deben ser iguales");
     } 
-    if(usuario != null && usuario.getEmail().equals(email)){
+    /*if(usuario != null && usuario.getEmail().equals(email)){
             throw new MiException("El usuario que intenta registrar ya se encuentra registrado, intenta otro");
-        } return true;
+        } */return true;
   } 
 
   public List<Usuario> listarUsuarios() {

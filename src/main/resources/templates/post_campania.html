@@ -1,0 +1,50 @@
+<div th:fragment="publicaciones">
+    <div class="body">
+                <div class="body_resize">
+                    <div class="left3">
+                        <div class="resize_bg">
+                            <h2>Publica tu experiencia:</h2>
+                            <!-- Cambiar referencias -->
+                            <form id="contactform" enctype="multipart/form-data"
+                                  th:action="@{/}" method="POST">
+                                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Error</h5>
+                                        <p class="card-text" th:text="${error}"></p>
+                                    </div>    
+                                </div>
+
+                                <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Exito</h5>
+                                        <p class="card-text" th:text="${exito}"></p>
+                                    </div>
+                                </div>
+                                <ol>
+                                    <li>
+                                        <textarea id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Experiencia"
+                                                  rows="6"
+                                                  cols="50"
+                                                  ></textarea>
+                                    </li>
+                                    <li>                                      
+                                        <input class="form-control" type="file" accept="image/*" id="imagen" name="file"/>
+                                    </li>
+                                    <li class="buttons">
+                                        <input
+                                            type="submit"
+                                            name="imageField"
+                                            id="imageField"
+                                            value="Guardar"
+                                            class="send"
+                                            />
+                                        <div class="clr"></div>
+                                    </li>
+                                </ol>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+</div>

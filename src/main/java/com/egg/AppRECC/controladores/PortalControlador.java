@@ -6,6 +6,7 @@
 package com.egg.AppRECC.controladores;
 
 import com.egg.AppRECC.entidades.Posteo;
+import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
@@ -80,8 +81,7 @@ public class PortalControlador {
         if (error != null) {
             modelo.put("error", "Usuario o Contraseña invalidos");
         }
-        List<Posteo> posteos = posteoServicio.listarPosteos();
-        modelo.addAttribute("posteos", posteos);
+        
 
         return "login.html";
     }
@@ -143,5 +143,12 @@ public class PortalControlador {
         List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
         modelo.addAttribute("posteos", posteos);
         return "buscarPosteos.html";
+    }
+    
+    @GetMapping("/listar")
+    public String listar(ModelMap modelo) {
+        List<Usuario> usuarios = usuarioServicio.listarUsuarios();
+        modelo.addAttribute("usuarios", usuarios);
+        return "listarUsuarios.html";
     }
 }

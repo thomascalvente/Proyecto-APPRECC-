@@ -27,6 +27,7 @@ and open the template in the editor.
                         class="login-register-letra-tamanio"
                         type="text"
                         id="email"
+                        name="email"
                         placeholder="Email"
                         />                   
                 </div>
@@ -35,11 +36,12 @@ and open the template in the editor.
                         class="login-register-letra-tamanio"
                         type="password"
                         id="password"
+                        name="password"
                         placeholder="Contraseña"
                         />
                 </div>
 
-                <button>Iniciar Sesión</button>
+                <button type="submit">Iniciar Sesión</button>
                 <a class="btn btn-secondary" th:href="@{/}">Volver</a>
                 <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
             </form>

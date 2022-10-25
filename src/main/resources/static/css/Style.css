@@ -143,10 +143,10 @@ h1 small {
     float:left;
 }
 .headert_text {
-    width:400px;
-    float:right;
-    margin:0;
-    padding:40px 114px 0 0;
+    width: 483px;
+    float: right;
+    margin: -24px;
+    padding: 61px 75px 67px 0px;
     text-align: center;
 }
 .headert_text h2 {
