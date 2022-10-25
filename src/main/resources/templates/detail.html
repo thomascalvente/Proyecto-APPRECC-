@@ -41,14 +41,14 @@ and open the template in the editor.
                   alt="imagen"
                 />
               </div>
-              <a
+              <a sec:authorize="hasRole('ADMIN')"
                 class="btn btn-success"
                 th:href="@{/posteos/modificar/}+${posteos.id}"
               >
                 Modificar
               </a>
 
-              <a
+              <a sec:authorize="hasRole('ADMIN')"
                 type="button"
                 data-bs-toggle="modal"
                 th:attr="data-bs-target='#exampleModal'+*{posteos.id}"

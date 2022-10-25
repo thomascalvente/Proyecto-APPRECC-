@@ -32,12 +32,6 @@ public class PosteoControlador {
     @Autowired
     private PosteoServicio posteoServicio;
     
-    @GetMapping("/publicar")
-    public String actividades() {
-        
-        return "posteos_form.html";
-    }
-    
     @GetMapping("/detalle/{id}")
     public String detalle(@PathVariable Long id, ModelMap modelo) {
 
