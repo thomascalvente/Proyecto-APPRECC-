@@ -5,7 +5,9 @@
  */
 package com.egg.AppRECC.entidades;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,14 +30,14 @@ public class Campania {
     
     private String titulo;
     
-    @Column(length = 10000)
-    private String cuerpo;
+    private String description;
+    
+    private Date fechaFin;
     
     private boolean borrado = false;
     
     @Column(columnDefinition = "MEDIUMTEXT")
     private String imagen;
-    
     
     private LocalDate fecha;
     
