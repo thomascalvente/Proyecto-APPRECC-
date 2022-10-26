@@ -42,13 +42,22 @@
                                                   cols="50"
                                                   ></textarea>
                                     </li>
+                                    <div class="flex-fill">
+                                        <select name="idCampania">
+                                            <option th:each="campania : ${campanias}"
+                                                    th:value="${campania.id}"
+                                                    th:text="${campania.titulo}"
+                                                    th:selected:="false"
+                                                    />
+                                        </select>
+                                    </div>
                                     <li>
                                         <label for="imagen" class="form-label">Imagen</label>
                                         <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />
                                     </li>
                                     <li class="buttons">
-                                        
-                                        
+
+
                                         <input
                                             type="submit"
                                             name="imageField"
