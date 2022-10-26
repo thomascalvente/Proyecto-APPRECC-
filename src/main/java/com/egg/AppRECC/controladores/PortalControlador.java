@@ -10,6 +10,7 @@ import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,10 +126,11 @@ public class PortalControlador {
             @RequestParam("email") String email,
             @RequestParam("password") String password,
             @RequestParam("password2") String password2,
+            @RequestParam("file") MultipartFile imagen,
             ModelMap modelo
-    ) {
+    ) throws IOException {
         try {
-            usuarioServicio.crearUsuario(nombre, email, password, password2);
+            usuarioServicio.crearUsuario(nombre, email, password, password2, imagen);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
 
