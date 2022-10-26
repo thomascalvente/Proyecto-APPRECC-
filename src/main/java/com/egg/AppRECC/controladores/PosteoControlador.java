@@ -5,8 +5,10 @@
  */
 package com.egg.AppRECC.controladores;
 
+import com.egg.AppRECC.entidades.Campania;
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.excepciones.MiException;
+import com.egg.AppRECC.servicios.CampaniaServicio;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import java.time.LocalDate;
 import java.util.List;
@@ -21,16 +23,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author PC
- */
+
 @Controller
 @RequestMapping("posteos")
 public class PosteoControlador {
     
     @Autowired
     private PosteoServicio posteoServicio;
+    
+    @Autowired
+    private CampaniaServicio campaniaServicio;
     
     @GetMapping("/detalle/{id}")
     public String detalle(@PathVariable Long id, ModelMap modelo) {
@@ -54,9 +56,12 @@ public class PosteoControlador {
     public String modificar(@PathVariable Long id, ModelMap modelo){
         
         Optional<Posteo> posteos = posteoServicio.findById(id);
+        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
+        
         modelo.addAttribute("posteos", posteos.get());
         modelo.addAttribute("titulo", posteos.get().getTitulo());
-        modelo.put("cuerpo", posteos.get().getCuerpo());
+        modelo.addAttribute("Cuerpo", posteos.get().getCuerpo());
+        modelo.addAttribute("campanias", campanias);
         //modelo.addAttribute("file", posteos.get().getImagen());
         
         return "modificar_form.html"; 
