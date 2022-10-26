@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- INICIO -->
+    <body>
+
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div class="body">
+                <div class="body_resize2">
+                    <div class="left2 navbar">
+                        <img class="d-block w2-100" src="/img/introduccion.PNG">
+                    </div>
+                    <div th:replace="/fragments/posteos :: div"></div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+
+        </div>
+        <footer th:replace="/fragments/footer :: div"></footer>
+    </body>
+</html>

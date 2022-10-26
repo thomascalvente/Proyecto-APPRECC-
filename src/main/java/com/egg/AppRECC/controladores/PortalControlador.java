@@ -35,7 +35,12 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
-
+    
+    @GetMapping("/")
+    public String intro(ModelMap modelo) { //localhost:8080/
+        return "introduccion.html";
+    }
+    
     @GetMapping("/")
     public String index(ModelMap modelo) { //localhost:8080/
 

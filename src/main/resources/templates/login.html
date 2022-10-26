@@ -18,7 +18,7 @@ and open the template in the editor.
 
 
 
-                
+
                 <div class="login-register-apprec">
                     <h1>
                         <div>
@@ -43,16 +43,13 @@ and open the template in the editor.
                         name="password"
                         id="password"
                         placeholder="Contraseña"
-                    />
+                        />
                     <i class="fa-solid fa-eye" id="eye"></i>
                 </div>
                 <button type="submit">Log In</button>
+                <a class="btn btn-secondary" th:href="@{/}">Volver</a>
+                <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
             </form>
-
-            <a class="btn btn-secondary" th:href="@{/}">Volver</a>
-            <a th:href="@{/registrar}" class="btn btn-secondary">Desea registrarse?</a>
-
-            
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
         <script src="/js/script.js"></script>
