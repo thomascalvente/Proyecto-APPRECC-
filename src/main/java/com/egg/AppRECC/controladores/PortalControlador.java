@@ -12,6 +12,7 @@ import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.CampaniaServicio;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -129,11 +130,12 @@ public class PortalControlador {
     @PostMapping("/modificado")
     public String modificado(@RequestParam("id") Long id, 
             @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, 
+            @RequestParam("cuerpo") String cuerpo,
+            @RequestParam("idCampania") Long id_Campania,
             @RequestParam(required = false ,name="file") MultipartFile imagen, 
             LocalDate fecha, 
             ModelMap modelo) {
-        posteoServicio.actualizar(id, titulo, cuerpo, imagen, fecha);
+        posteoServicio.actualizar(id, titulo, cuerpo, imagen, id_Campania, fecha);
         modelo.put("exito", "la actividad se cargo correctamente");
         List<Posteo> posteos = posteoServicio.listarPosteos();
         modelo.addAttribute("posteos", posteos);
@@ -146,10 +148,11 @@ public class PortalControlador {
             @RequestParam("email") String email,
             @RequestParam("password") String password,
             @RequestParam("password2") String password2,
+            @RequestParam("file") MultipartFile imagen,
             ModelMap modelo
-    ) {
+    ) throws IOException {
         try {
-            usuarioServicio.crearUsuario(nombre, email, password, password2);
+            usuarioServicio.crearUsuario(nombre, email, password, password2, imagen);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
 

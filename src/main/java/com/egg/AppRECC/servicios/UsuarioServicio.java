@@ -4,10 +4,12 @@ import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.enumeraciones.Rol;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.repositorios.UsuarioRepositorio;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
+import net.iharder.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
@@ -31,20 +34,36 @@ public class UsuarioServicio implements UserDetailsService {
     String nombre,
     String email,
     String password,
-    String password2
+    String password2,
+    MultipartFile imagenPerfil
   )
-    throws MiException {
+    throws MiException, IOException {
     if(validar(nombre, email, password, password2)){
 
     Usuario usuario = new Usuario();
     usuario.setNombre(nombre);
     usuario.setEmail(email);
     usuario.setPassword(new BCryptPasswordEncoder().encode(password));
+    
+    
+    if (!imagenPerfil.isEmpty()) {
+        try {
+            usuario.setImagenPerfil(Base64.encodeBytes(imagenPerfil.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     usuario.setActivo(1);
     usuario.setRol(Rol.GUEST);
     
     repo.save(usuario);
   }}
+  
+  
+  
+  
+  
 
   public boolean validar(
     String nombre,
@@ -134,31 +153,8 @@ public class UsuarioServicio implements UserDetailsService {
 
       repo.save(usuario);
     }
-<<<<<<< HEAD
   }
-=======
-    
-    
-    public void validar(String nombre, String email, String password, String password2)throws MiException{
-        /*Usuario usuario = usuarioRepositorio.buscarPorEmail(email);*/
-        
-        if(nombre.isEmpty() || nombre == null){
-            throw new MiException("El nombre no puede ser nulo o estar vacio");
-        }
-        if(email.isEmpty() || email == null){
-            throw new MiException("El email no puede ser nulo o estar vacio");
-        }
-        if(password.isEmpty() || password == null || password.length() <= 5){
-            throw new MiException("La contraseña no puede estar vacia, y debe tener mas de 5 digitos");
-        }
-        if(!password.equals(password2)){
-            throw new MiException("Las contraseñas ingresadas deben ser iguales");
-        }
-        /*if(usuario.getEmail().equals(email)){
-            throw new MiException("El usuario que intenta registrar ya se encuentra registrado, intenta otro");
-        }*/
-    }
->>>>>>> 51540a51968ac46d14a2ccbfea8f54815c2c7690
+
 
   @Override
   public UserDetails loadUserByUsername(String email)
