@@ -59,6 +59,11 @@ public class UsuarioServicio implements UserDetailsService {
     
     repo.save(usuario);
   }}
+  
+  
+  
+  
+  
 
   public boolean validar(
     String nombre,
