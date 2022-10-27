@@ -5,9 +5,11 @@
  */
 package com.egg.AppRECC.controladores;
 
+import com.egg.AppRECC.entidades.Campania;
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.excepciones.MiException;
+import com.egg.AppRECC.servicios.CampaniaServicio;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
 import java.io.IOException;
@@ -36,6 +38,9 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
+    
+    @Autowired
+    private CampaniaServicio campaniaServicio;
 
     @GetMapping("/")
     public String index(ModelMap modelo) { //localhost:8080/
@@ -72,8 +77,9 @@ public class PortalControlador {
 
         //List<Posteo> posteos = posteoServicio.listarPosteos();
         List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
         modelo.addAttribute("posteos", posteos);
-
+        modelo.addAttribute("campanias", campanias);
         return "publicar.html";
     }
 
@@ -94,9 +100,12 @@ public class PortalControlador {
 
     @PostMapping("/")
     public String Index(@RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, @RequestParam("file") MultipartFile imagen, ModelMap modelo) {
+            @RequestParam("cuerpo") String cuerpo, 
+            @RequestParam("file") MultipartFile imagen, 
+            @RequestParam("idCampania") long idCampania, 
+            ModelMap modelo) {
         try {
-            posteoServicio.crearPosteo(titulo, cuerpo, imagen);
+            posteoServicio.crearPosteo(titulo, cuerpo, imagen, idCampania);
 
             modelo.put("exito", "la actividad se cargo correctamente");
 
@@ -111,8 +120,12 @@ public class PortalControlador {
     }
 
     @PostMapping("/modificado")
-    public String modificado(@RequestParam("id") Long id, @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, @RequestParam("file") MultipartFile imagen, LocalDate fecha, ModelMap modelo) {
+    public String modificado(@RequestParam("id") Long id, 
+            @RequestParam("titulo") String titulo,
+            @RequestParam("cuerpo") String cuerpo, 
+            @RequestParam(required = false ,name="file") MultipartFile imagen, 
+            LocalDate fecha, 
+            ModelMap modelo) {
         posteoServicio.actualizar(id, titulo, cuerpo, imagen, fecha);
         modelo.put("exito", "la actividad se cargo correctamente");
         List<Posteo> posteos = posteoServicio.listarPosteos();

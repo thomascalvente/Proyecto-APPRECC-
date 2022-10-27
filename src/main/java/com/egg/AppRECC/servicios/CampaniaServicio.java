@@ -9,6 +9,7 @@ import com.egg.AppRECC.entidades.Campania;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.repositorios.CampaniaRepositorio;
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,8 @@ public class CampaniaServicio {
     private CampaniaRepositorio campaniarepositorio;
     
     @Transactional
-    public void crearCampania(String titulo, String cuerpo, MultipartFile imagen) throws MiException{
-        validar(titulo, cuerpo);
+    public void crearCampania(String titulo, String description, MultipartFile imagen, Date fechaFin) throws MiException{
+        validar(titulo, description);
         
         Campania campania = new Campania();
         
@@ -42,9 +43,9 @@ public class CampaniaServicio {
                 e.printStackTrace();
             }
         }
-        
+        campania.setFechaFin(fechaFin);
         campania.setTitulo(titulo);
-        campania.setCuerpo(cuerpo);
+        campania.setDescription(description);
         campania.setFecha(LocalDate.now());
         
         campaniarepositorio.save(campania);
@@ -75,9 +76,9 @@ public class CampaniaServicio {
         return campania;
     }
     
-    public List<Campania> buscarCampania(String frase){
+    public List<Campania> buscarCampania(String frase, String orden){
          List<Campania> campania = new ArrayList();
-         campania = campaniarepositorio.buscarCampanias(frase);
+         campania = campaniarepositorio.buscarCampanias(frase, orden);
          
          return campania;
     }
@@ -96,14 +97,14 @@ public class CampaniaServicio {
     }
     
     @Transactional
-    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, LocalDate fecha){
+    public void actualizar(Long id, String titulo, String description, MultipartFile imagen, LocalDate fecha){
         
         Optional<Campania> respuesta = campaniarepositorio.findById(id);
         
         if(respuesta.isPresent()){
             Campania campania = respuesta.get();
             campania.setTitulo(titulo);
-            campania.setCuerpo(cuerpo);
+            campania.setDescription(description);
             try {
                 campania.setImagen(Base64.encodeBytes(imagen.getBytes()));
             } catch (IOException e) {
@@ -114,7 +115,7 @@ public class CampaniaServicio {
         }        
     }
     
-    private void validar( String titulo, String cuerpo) throws MiException {
+    private void validar( String titulo, String description) throws MiException {
 
         
 
@@ -122,8 +123,8 @@ public class CampaniaServicio {
             throw new MiException("el titulo no puede ser nulo o estar vacio");
         }
 
-        if (cuerpo.isEmpty() || cuerpo == null) {
-            throw new MiException("el cuerpo de la actividad no puede ser nulo o estar vacio");
+        if (description.isEmpty() || description == null) {
+            throw new MiException("debe incluir una breve descripción de la campaña");
         }
 
     }

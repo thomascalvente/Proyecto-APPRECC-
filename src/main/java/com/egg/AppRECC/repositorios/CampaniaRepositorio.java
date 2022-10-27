@@ -10,11 +10,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author PC
- */
+@Repository
 public interface CampaniaRepositorio extends JpaRepository<Campania, Long>{
     
     @Query("SELECT c FROM Campania c WHERE c.titulo = :titulo")
@@ -26,7 +24,13 @@ public interface CampaniaRepositorio extends JpaRepository<Campania, Long>{
     @Query("SELECT c FROM Campania c WHERE c.id = :id")
     public Campania buscarPorId(@Param("id") Long id);
     
-    @Query("SELECT c FROM Campania c WHERE c.borrado!=true and c.cuerpo LIKE %:frase% and c.titulo LIKE %:frase% ORDER BY c.fecha desc")
-    public List<Campania> buscarCampanias(@Param("frase") String frase);
+    @Query("SELECT c FROM Campania c WHERE c.borrado!=true and c.description LIKE %:frase% and c.titulo LIKE %:frase% ORDER BY "
+            + "\nCASE\n"
+            + " WHEN :orden = 'titulo' THEN c.titulo\n"
+            + " WHEN :orden = 'description' THEN c.description\n"
+            + " WHEN :orden = 'fechaFin' THEN c.fechaFin\n"
+            + " ELSE c.fecha\n"
+            + " END\n")
+    public List<Campania> buscarCampanias(@Param("frase") String frase, @Param("orden") String orden);
     
 }

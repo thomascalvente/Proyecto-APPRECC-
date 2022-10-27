@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/inicio")
 public class UsuarioControlador {
+<<<<<<< HEAD
 
   @Autowired
   private UsuarioServicio usuarioServicio;
@@ -46,6 +47,31 @@ public class UsuarioControlador {
         modelo.addAttribute("posteos", posteos);
         
         return "inicio.html";
+=======
+    
+    @Autowired
+    private UsuarioServicio usuarioServicio;
+    
+    @GetMapping("/registrar")
+    public String registrar(){
+        return "register.html";
+    }
+    
+    @PostMapping("/registro")
+    public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
+            @RequestParam("password") String password,@RequestParam("password2") String password2, ModelMap modelo){
+
+        try {
+            usuarioServicio.crearUsuario(nombre, email, password, password2);
+            modelo.put("exito", "El usuario se creo correctamente");
+            return "redirect:/";
+        } catch (MiException e) {
+            modelo.put("error", e.getMessage());
+            modelo.put("nombre", nombre);
+            modelo.put("email", email);
+            return "user_form";
+        }
+>>>>>>> 51540a51968ac46d14a2ccbfea8f54815c2c7690
     }
     
 }
