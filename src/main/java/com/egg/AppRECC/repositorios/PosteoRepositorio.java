@@ -24,4 +24,8 @@ public interface PosteoRepositorio extends JpaRepository<Posteo, Long>{
     @Query("SELECT n FROM Posteo n WHERE n.borrado!=true and n.cuerpo LIKE %:frase% and n.titulo LIKE %:frase% ORDER BY n.fecha desc")
     public List<Posteo> buscarPosteos(@Param("frase") String frase);
     
+    @Query("SELECT p FROM Posteo p WHERE p.borrado!=true and p.idCampania = %:campania% ORDER BY p.fecha")
+    public List<Posteo> mostrarPosteosXCampania(@Param("campania") Long campania);
+    
+    
 }

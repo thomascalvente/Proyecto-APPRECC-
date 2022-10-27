@@ -50,7 +50,7 @@ public class PortalControlador {
     private CampaniaServicio campaniaServicio;
 
 
-    @GetMapping("/")
+    @GetMapping("/logueado")
     public String index(ModelMap modelo) { //localhost:8080/
 
         //List<Posteo> posteos = posteoServicio.listarPosteos();
