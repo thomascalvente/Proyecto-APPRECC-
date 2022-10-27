@@ -6,6 +6,7 @@ import com.egg.AppRECC.enumeraciones.Rol;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import javax.servlet.http.HttpSession;
@@ -18,11 +19,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/inicio")
 public class UsuarioControlador {
-<<<<<<< HEAD
 
   @Autowired
   private UsuarioServicio usuarioServicio;
@@ -47,10 +48,7 @@ public class UsuarioControlador {
         modelo.addAttribute("posteos", posteos);
         
         return "inicio.html";
-=======
-    
-    @Autowired
-    private UsuarioServicio usuarioServicio;
+    }
     
     @GetMapping("/registrar")
     public String registrar(){
@@ -59,10 +57,10 @@ public class UsuarioControlador {
     
     @PostMapping("/registro")
     public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
-            @RequestParam("password") String password,@RequestParam("password2") String password2, ModelMap modelo){
+            @RequestParam("password") String password,@RequestParam("password2") String password2, @RequestParam("file") MultipartFile imagen, ModelMap modelo) throws IOException{
 
         try {
-            usuarioServicio.crearUsuario(nombre, email, password, password2);
+            usuarioServicio.crearUsuario(nombre, email, password, password2, imagen);
             modelo.put("exito", "El usuario se creo correctamente");
             return "redirect:/";
         } catch (MiException e) {
@@ -71,7 +69,7 @@ public class UsuarioControlador {
             modelo.put("email", email);
             return "user_form";
         }
->>>>>>> 51540a51968ac46d14a2ccbfea8f54815c2c7690
+
     }
     
 }

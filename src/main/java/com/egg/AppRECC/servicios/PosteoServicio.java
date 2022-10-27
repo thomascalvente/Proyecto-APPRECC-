@@ -31,7 +31,7 @@ public class PosteoServicio {
     private PosteoRepositorio posteorepositorio;
     
     @Transactional
-    public void crearPosteo(String titulo, String cuerpo, MultipartFile imagen) throws MiException{
+    public void crearPosteo(String titulo, String cuerpo, MultipartFile imagen, Long id_campania) throws MiException{
         validar(titulo, cuerpo);
         
         Posteo posteo = new Posteo();
@@ -46,6 +46,7 @@ public class PosteoServicio {
         
         posteo.setTitulo(titulo);
         posteo.setCuerpo(cuerpo);
+        posteo.setId_campania(id_campania);
         posteo.setFecha(LocalDate.now());
         
         posteorepositorio.save(posteo);
@@ -97,7 +98,7 @@ public class PosteoServicio {
     }
     
     @Transactional
-    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, LocalDate fecha){
+    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, Long id_campania, LocalDate fecha){
         
         Optional<Posteo> respuesta = posteorepositorio.findById(id);
         
@@ -105,6 +106,7 @@ public class PosteoServicio {
             Posteo posteo = respuesta.get();
             posteo.setTitulo(titulo);
             posteo.setCuerpo(cuerpo);
+            posteo.setId_campania(id_campania);
             try {
                 posteo.setImagen(Base64.encodeBytes(imagen.getBytes()));
             } catch (IOException e) {

@@ -122,11 +122,12 @@ public class PortalControlador {
     @PostMapping("/modificado")
     public String modificado(@RequestParam("id") Long id, 
             @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, 
+            @RequestParam("cuerpo") String cuerpo,
+            @RequestParam("idCampania") Long id_Campania,
             @RequestParam(required = false ,name="file") MultipartFile imagen, 
             LocalDate fecha, 
             ModelMap modelo) {
-        posteoServicio.actualizar(id, titulo, cuerpo, imagen, fecha);
+        posteoServicio.actualizar(id, titulo, cuerpo, imagen, id_Campania, fecha);
         modelo.put("exito", "la actividad se cargo correctamente");
         List<Posteo> posteos = posteoServicio.listarPosteos();
         modelo.addAttribute("posteos", posteos);
