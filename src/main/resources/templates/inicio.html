@@ -9,17 +9,19 @@
             <div class="body">
                 <div class="body_resize2">
                     <div class="left2 navbar">
+                        <h2>Campañas</h2>
                         <form th:action="@{/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
                             <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
                     </div>
-                    <div th:replace="/fragments/posteos :: div"></div>
+                    <div th:replace="/fragments/campanias :: div"></div>
                     <div class="clr"></div>
                 </div>
             </div>
 
         </div>
+        <div th:replace="/fragments/carrusel :: carrusel"></div>
         <footer th:replace="/fragments/footer :: div"></footer>
     </body>
 </html>

@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- INICIO -->
+    <body >
+
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
+
+
+
+            <div class="body_resize">
+                <table class="table table-striped table-hover text-center table-success">
+                    <thead>
+                        <tr class="">
+
+                            <th class="" scope="col">Titulo</th>
+                            <th class="" scope="col">Descripcion</th>
+                            <th class="" scope="col">Fecha Cierre</th>
+                        </tr>
+                    </thead>
+                    <tbody class="" th:each="campania : ${campanias}">
+                        <tr>
+                            <th class="lista" th:text="${campania.titulo}"></th>
+                            <th class="lista" th:text="${campania.description}"></th>
+                            <th class="lista" th:text="${campania.fechaFin}"></th>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+        <footer th:replace="/fragments/footer :: div"></footer>
+    </body>
+
+
+</html>
