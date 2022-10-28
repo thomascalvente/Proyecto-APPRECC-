@@ -39,10 +39,18 @@ public class PortalControlador {
     @Autowired
     private UsuarioServicio usuarioServicio;
     
+
+    @GetMapping("/")
+    public String intro(ModelMap modelo) { //localhost:8080/
+        return "introduccion.html";
+    }
+    
+
     @Autowired
     private CampaniaServicio campaniaServicio;
 
-    @GetMapping("/")
+
+    @GetMapping("/logueado")
     public String index(ModelMap modelo) { //localhost:8080/
 
         //List<Posteo> posteos = posteoServicio.listarPosteos();

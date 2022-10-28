@@ -7,21 +7,26 @@
                         <a th:href="@{/}">
                             <span>AppReCC</span>
                             <img class="arbol" src="/img/mundon.png">
-                            <small>Vive más, vive mejor!</small>
+                            <small class="vive">Vive más, vive mejor!</small>
                         </a>
                     </h1>
                 </div>
                 <div class="menu">
                     <ul>
                         <li><a th:href="@{/}" class="nav-item">Inicio</a></li>    <!-- VER SELECCION MARCADA -->
-                        
+
                         <li><a th:href="@{/nosotros}" class="nav-item">Nosotros</a></li>
-                        <li th:if="${session.usuariosession != null}"><a th:href="@{/publicar}" class="nav-item">Publicar</a></li>
                         <li th:if="${session.usuariosession == null}"><a th:href="@{/login}" class="nav-item">Ingresar</a></li>
                         <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin/listar}" class="nav-item">Listar usuarios</a></li>
-                        <li th:if="${session.usuariosession != null}"><a th:href="@{/perfil}" th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-item" ></a></li>
-                        <li th:if="${session.usuariosession != null}"><a class="nav-item" th:href="@{/logout}">Cerrar sesion</a></li> 
-                        
+                        <li th:if="${session.usuariosession != null}" class="nav-item dropdown">
+                            <a th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" th:href="@{/publicar}">Publicar</a>
+                                <a class="dropdown-item" th:href="@{/perfil}">Perfil</a>
+                                <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="clr"></div>

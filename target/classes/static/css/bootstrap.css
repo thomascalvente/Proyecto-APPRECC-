@@ -712,7 +712,7 @@ progress {
 }
 @media (min-width: 1400px) {
     .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-        max-width: 1320px;
+        max-width: 993px;
     }
 }
 .row {
@@ -6661,6 +6661,10 @@ textarea.form-control-lg {
 
 .w-100 {
     width: 969px !important;
+}
+
+.w2-100{
+    width: 855px !important;
 }
 
 .w-auto {
