@@ -3,7 +3,11 @@ body {
     margin:0;
     padding:0;
     width:100%;
-    background-image: url(/img/fondo1.jpg);
+    background-image: url(/img/pie.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 20em;
 }
 html {
     padding:0;
@@ -16,20 +20,20 @@ html {
 }
 
 .password-container{
-  position: relative;
+    position: relative;
 }
 .password-container input[type="password"],
 .password-container input[type="text"]{
-  width: 100%;
-  padding: 12px 36px 12px 12px;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    box-sizing: border-box;
 }
 .fa-eye{
-  position: absolute;
-  top: 20%;
-  right: 6%;
-  cursor: pointer;
-  color: #97c950;
+    position: absolute;
+    top: 20%;
+    right: 6%;
+    cursor: pointer;
+    color: #97c950;
 }
 
 li.bg, .bg {
@@ -46,12 +50,13 @@ p.clr, .clr {
 }
 .main {
     margin:0 auto;
-    padding:0;
+    padding:0;  
 }
 .header_resize {
     margin:0 auto;
     padding:0;
     width:968px;
+    background-color: rgba(248,248,255,0.5);    
 }
 .header {
     background:top repeat-x;
@@ -205,7 +210,7 @@ h1 small {
 .body_resize2{
     width:969px;
     padding:3%;
-    background-color: #c0c0c0;
+    background-color: rgba(248,248,255,0.5);
     margin:0 auto;
     height:auto;
     text-align: center;
@@ -256,7 +261,6 @@ h1 small {
 
 .left2{ 
     padding:0;
-    background: #c0c0c0;
     text-align: center;
 }
 
@@ -456,7 +460,7 @@ h1 small {
     color:#F00;
 }
 #contactform input.text {
-    width:480px;
+    width:816px;
     border:1px solid #c0c0c0;
     margin:2px 0;
     padding:5px 2px;
@@ -465,7 +469,7 @@ h1 small {
     float:left;
 }
 #contactform textarea {
-    width:480px;
+    width:816px;
     border:1px solid #c0c0c0;
     margin:2px 0;
     padding:2px;
@@ -636,8 +640,16 @@ h2 {
     width:969px;
     padding:3%;
     margin:0 auto;
-    background: #c0c0c0;
+    background-color: rgba(248,248,255,0.5);
     height:320px;
+    text-align: center;
+}
+
+.formulario2{
+    width:969px;
+    padding:3rem;
+    margin: auto;
+    background: #c0c0c0;
     text-align: center;
 }
 
@@ -652,4 +664,7 @@ h2 {
 
 .arbol{
     width: 30px;
+}
+.vive{
+    color: black;
 }

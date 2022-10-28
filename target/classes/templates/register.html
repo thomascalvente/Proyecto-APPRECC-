@@ -15,7 +15,7 @@ and open the template in the editor.
             </div>
             <form id="form" class="login-register-form" enctype="multipart/form-data"
                   th:action="@{/registro}" method="POST">
-                
+
                 <div class="login-register-apprec">
                     <h1>
                         <div>
@@ -29,7 +29,7 @@ and open the template in the editor.
                         type="text"
                         name="nombre" th:value="*{nombre}" placeholder="Nombre"
                         />
-                    
+
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -37,7 +37,7 @@ and open the template in the editor.
                         type="email"
                         name="email" th:value="*{email}" placeholder="email"
                         />
-                    
+
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -47,7 +47,7 @@ and open the template in the editor.
                         name="password" th:value="*{password}" placeholder="Contraseña"
                         />
                     <i class="fa-solid fa-eye" id="eye"></i>
-                    
+
                 </div>
                 <div class="login-register-form-control">
                     <input
@@ -58,14 +58,19 @@ and open the template in the editor.
                         name="password2" th:value="*{password2}" 
                         />
                     <i class="fa-solid fa-eye" id="eye2"></i>
-                    
+
                 </div>
+                <div class="login-register-form-control">
+                    <label for="imagen" class="form-label">Imagen de Perfil</label>
+                    <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />
+                </div>
+
                 <button name="boton" type="submit">Registrarse</button>
                 <a class="btn btn-secondary botonRegresar" th:href="@{/}">Volver a Inicio</a>
             </form>
             <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
         </main>
-        
+
         <script src="/js/script.js"></script>
     </body>
 </html>
