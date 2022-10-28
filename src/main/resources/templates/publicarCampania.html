@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace= "/fragments/head :: head" ></head>
     <!-- PUBLICAR -->
     <body>
@@ -9,35 +9,31 @@
                 <div class="body_resize">
                     <div class="left3">
                         <div class="resize_bg">
-                            
+                            <h2>Publique su nueva Campaña:</h2>
                             <p>
-                                Publique su Experiencia:
+                                Una campaña es un conjunto de actividades o de trabajos que se
+                                realizan en un período de tiempo determinado y están encaminados
+                                a conseguir un fin.
                             </p>
                             <form id="contactform" enctype="multipart/form-data"
-                                  th:action="@{/posteos}" method="POST">
-                                <input type="hidden" name="id" th:value="${campania.id}">
+                                  th:action="@{/campania}" method="POST">
                                 <div th:replace="/fragments/mensajes :: mensaje"></div>
                                 <ol>
                                     <li>
                                         <label for="name" th>Titulo</label>
-                                        <input type="text" class="text" name="titulo" th:value="*{titulo}" placeholder="Titulo de la actividad" />
+                                        <input type="text" class="text" name="titulo" th:value="*{titulo}" placeholder="Titulo de la campania" />
                                     </li>
                                     <li>
-                                        <label for="exampleFormControlTextarea1" >Cuerpo</label>
-                                        <textarea id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Cuerpo"
+                                        <label for="exampleFormControlTextarea1" >Descripcion</label>
+                                        <textarea id="exampleFormControlTextarea1" name="description" th:value="*{description}" placeholder="Descripcion"
                                                   rows="6"
                                                   cols="50"
                                                   ></textarea>
                                     </li>
-                                     <div class="flex-fill">
-                                        <select>
-                                            <option th:each="campania : ${campanias}"
-                                                    th:value="${campania.id}"
-                                                    th:text="${campania.titulo}"
-                                                    th:selected="false"
-                                                    />
-                                        </select>
-                                    </div> 
+                                     <li>
+                                        <label for="name" th>Fecha de Cierre</label>
+                                        <input type="date" class="text" name="fechaFin" th:value="*{fechaFin}" placeholder="Fecha de cierre" />
+                                    </li>
                                     <li>
                                         <label for="imagen" class="form-label">Imagen</label>
                                         <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />

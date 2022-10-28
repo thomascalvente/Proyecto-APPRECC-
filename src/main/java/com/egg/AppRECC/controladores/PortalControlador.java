@@ -54,8 +54,8 @@ public class PortalControlador {
     public String index(ModelMap modelo) { //localhost:8080/
 
         //List<Posteo> posteos = posteoServicio.listarPosteos();
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
-        modelo.addAttribute("posteos", posteos);
+        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
+        modelo.addAttribute("campanias", campanias);
 
         return "inicio.html";
     }
@@ -88,7 +88,7 @@ public class PortalControlador {
         List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
         modelo.addAttribute("posteos", posteos);
         modelo.addAttribute("campanias", campanias);
-        return "publicar.html";
+        return "publicarCampania.html";
     }
 
     @GetMapping("/login")

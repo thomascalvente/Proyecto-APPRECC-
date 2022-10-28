@@ -653,7 +653,7 @@ h2 {
 }
 
 .botonRegresar{
-    width: 50%;
+    width: 66%;
     margin-left: 65px;
 }
 
@@ -666,4 +666,9 @@ h2 {
 }
 .vive{
     color: black;
+}
+
+.apprecc-register{
+    width: 50%;
+    margin-left: 65px;
 }

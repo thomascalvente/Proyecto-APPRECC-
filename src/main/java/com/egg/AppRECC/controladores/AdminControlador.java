@@ -8,6 +8,7 @@
 
 package com.egg.AppRECC.controladores;
 
+import com.egg.AppRECC.entidades.Campania;
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.enumeraciones.Rol;
@@ -40,11 +41,14 @@ public class AdminControlador {
     @Autowired
     private PosteoServicio posteoServicio;
     
+    @Autowired
+    private CampaniaServicio campaniaServicio;
+    
     @GetMapping("/dashboard")
     public String panelAdministrativo(ModelMap modelo){
         
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
-        modelo.addAttribute("posteos", posteos);
+        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
+        modelo.addAttribute("campanias", campanias);
         
         
         
