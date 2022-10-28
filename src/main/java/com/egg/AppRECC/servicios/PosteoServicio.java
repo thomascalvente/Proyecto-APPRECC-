@@ -84,6 +84,13 @@ public class PosteoServicio {
          return posteos;
     }
     
+    public List<Posteo> listarPosteosPorCampanias(Long id){
+         List<Posteo> posteos = new ArrayList();
+         posteos = posteorepositorio.mostrarPosteosXCampania(id);
+         
+         return posteos;
+    }
+    
     @Transactional
     public void borrar(Long id, LocalDate fecha){
         Optional<Posteo> respuesta = posteorepositorio.findById(id);

@@ -10,6 +10,7 @@ import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.excepciones.MiException;
 import com.egg.AppRECC.servicios.CampaniaServicio;
 import com.egg.AppRECC.servicios.PosteoServicio;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -25,8 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
-@RequestMapping("posteos")
-public class PosteoControlador {
+@RequestMapping("campania")
+public class CampaniaControlador {
     
     @Autowired
     private PosteoServicio posteoServicio;
@@ -37,16 +38,16 @@ public class PosteoControlador {
     @GetMapping("/detalle/{id}")
     public String detalle(@PathVariable Long id, ModelMap modelo) {
 
-        Optional<Posteo> posteos = posteoServicio.findById(id);
-        modelo.addAttribute("posteos", posteos.get());
+        Optional<Campania> campanias = campaniaServicio.findById(id);
+        modelo.addAttribute("campanias", campanias.get());
         return "detail.html";
     }
     
     @GetMapping("/borrado/{id}")
     public String borrado(@PathVariable Long id, LocalDate fecha, ModelMap modelo){
         
-        posteoServicio.borrar(id, fecha);
-        modelo.put("exito", "el posteo se eliminó correctamente");
+        campaniaServicio.borrar(id, fecha);
+        modelo.put("exito", "la campania se eliminó correctamente");
         
         
         return "redirect:/"; 
@@ -55,38 +56,38 @@ public class PosteoControlador {
     @GetMapping("/modificar/{id}")
     public String modificar(@PathVariable Long id, ModelMap modelo){
         
-        Optional<Posteo> posteos = posteoServicio.findById(id);
-        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
+        Optional<Campania> campania = campaniaServicio.findById(id);
+
         
-        modelo.addAttribute("posteos", posteos.get());
-        modelo.addAttribute("titulo", posteos.get().getTitulo());
-        modelo.addAttribute("Cuerpo", posteos.get().getCuerpo());
-        modelo.addAttribute("campanias", campanias);
+        modelo.addAttribute("campania", campania.get());
+        modelo.addAttribute("fechaFin", campania.get().getFechaFin());
+        modelo.addAttribute("titulo", campania.get().getTitulo());
+        modelo.addAttribute("descripcion", campania.get().getDescription());
+        
         //modelo.addAttribute("file", posteos.get().getImagen());
         
         return "modificar_form.html"; 
     }
     
-     @GetMapping("/publicarPosteos/{id}")
-    public String publicarPosteos(@PathVariable Long id, ModelMap modelo) { //localhost:8080/
-        
-        Campania campania = campaniaServicio.findById(id).get();
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+    @GetMapping("publicarCampania")
+    public String publicar(ModelMap modelo) { //localhost:8080/
 
+        //List<Posteo> posteos = posteoServicio.listarPosteos();
+
+        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
         
-        modelo.addAttribute("campania", campania);
-        modelo.addAttribute("posteos", posteos);
-        return "publicar.html";
+        modelo.addAttribute("campanias", campanias);
+        return "campanias.html";
     }
     
     @PostMapping("")
-    public String index(@RequestParam("id") Long id,
-            @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo,
+    public String index(@RequestParam("titulo") String titulo,
+            @RequestParam("description") String description,
+            @RequestParam("fechaFin") Date fechaFin, 
             @RequestParam("file") MultipartFile imagen, 
             ModelMap modelo) {
         try {
-            posteoServicio.crearPosteo(titulo, cuerpo, imagen, id);
+            campaniaServicio.crearCampania(titulo, description, imagen, fechaFin);
 
             modelo.put("exito", "la actividad se cargo correctamente");
 
@@ -95,8 +96,21 @@ public class PosteoControlador {
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
             modelo.put("titulo", titulo);
-            modelo.put("cuerpo", cuerpo);
-            return "publicar.html";
+            modelo.put("description", description);
+            return "publicarCampania.html";
         }
+    }
+    
+    @GetMapping("/{id}")
+    public String campania(@PathVariable Long id, ModelMap modelo){
+        
+        List<Posteo> posteos = posteoServicio.listarPosteosPorCampanias(id);
+        Campania campania = campaniaServicio.findById(id).get();
+        modelo.addAttribute("posteos", posteos);
+        modelo.addAttribute("campania", campania);
+        
+        
+      
+        return "vistaPosteos.html"; 
     }
 }

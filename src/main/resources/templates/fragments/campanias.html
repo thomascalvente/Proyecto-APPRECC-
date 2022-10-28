@@ -1,20 +1,13 @@
-<div class="left1" th:each="campania : ${campania}">
+<div class="left1" th:each="campania : ${campanias}">
         <div class="resize_bg">
             <h2 th:text="${campania.titulo}">
                 <span th:text="${campania.titulo}"></span>
             </h2>
-            <a th:href="@{/campanias/detalle/} + ${campania.description}" >
+            <a th:href="@{/campania/} + ${campania.id}" >
                 <img th:src="@{'data:image/jpeg;base64,'+${campania.imagen}}" alt="" width="615" height="400" />
             </a>
-            <div class="flex-fill">
-                    <select name="idCampania">
-                        <option th:each="campania : ${campanias}"
-                                th:value="${campania.id}"
-                                th:text="${campania.titulo}"
-                                th:selected="false"
-                                />
-                    </select>
-                </div>
+            <p th:text="${campania.description}" >
+            </p>
             <div class="clr"></div>
             <p th:text="${campania.fechaFin}" >
             </p>
