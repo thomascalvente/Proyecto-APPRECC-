@@ -545,7 +545,6 @@ p.response {
     background-color: #6F984C;
     font-family: 'Proza Libre';
     display: flex;
-    align-items: center;
     justify-content: center;
     min-height: 100vh;
 }

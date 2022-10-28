@@ -90,7 +90,7 @@ public class UsuarioControlador {
     public String listarCampanias(ModelMap modelo) {
         List<Campania> campania = campaniaServicio.listarCampaniasBorradas();
         modelo.addAttribute("campania", campania);
-        return "listarCampanias.html";
+        return "listarCampania.html";
     }
     
 }
