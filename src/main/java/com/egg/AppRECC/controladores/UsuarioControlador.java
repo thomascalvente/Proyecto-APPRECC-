@@ -1,9 +1,11 @@
 package com.egg.AppRECC.controladores;
 
+import com.egg.AppRECC.entidades.Campania;
 import com.egg.AppRECC.entidades.Posteo;
 import com.egg.AppRECC.entidades.Usuario;
 import com.egg.AppRECC.enumeraciones.Rol;
 import com.egg.AppRECC.excepciones.MiException;
+import com.egg.AppRECC.servicios.CampaniaServicio;
 import com.egg.AppRECC.servicios.PosteoServicio;
 import com.egg.AppRECC.servicios.UsuarioServicio;
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class UsuarioControlador {
   @Autowired
   private UsuarioServicio usuarioServicio;
 
+  @Autowired
+  private CampaniaServicio campaniaServicio;
 
   
   @Autowired
@@ -56,8 +60,11 @@ public class UsuarioControlador {
     }
     
     @PostMapping("/registro")
-    public String registro(@RequestParam("nombre") String nombre, @RequestParam("email") String email,
-            @RequestParam("password") String password,@RequestParam("password2") String password2, @RequestParam("file") MultipartFile imagen, ModelMap modelo) throws IOException{
+    public String registro(@RequestParam("nombre") String nombre, 
+            @RequestParam("email") String email,
+            @RequestParam("password") String password,
+            @RequestParam("password2") String password2, 
+            @RequestParam("file") MultipartFile imagen, ModelMap modelo) throws IOException{
 
         try {
             usuarioServicio.crearUsuario(nombre, email, password, password2, imagen);
@@ -70,6 +77,20 @@ public class UsuarioControlador {
             return "user_form";
         }
 
+    }
+    
+    @GetMapping("/listarPosteos")
+    public String listarPosteos(ModelMap modelo) {
+        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        modelo.addAttribute("posteos", posteos);
+        return "listarPosteos.html";
+    }
+    
+    @GetMapping("/listarCampanias")
+    public String listarCampanias(ModelMap modelo) {
+        List<Campania> campania = campaniaServicio.listarCampaniasBorradas();
+        modelo.addAttribute("campania", campania);
+        return "listarCampanias.html";
     }
     
 }

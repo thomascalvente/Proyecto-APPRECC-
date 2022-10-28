@@ -62,7 +62,6 @@
 
                                 <li><a th:href="@{/nosotros}" class="nav-item">Nosotros</a></li>
                                 <li th:if="${session.usuariosession == null}"><a th:href="@{/login}" class="nav-item">Ingresar</a></li>
-                                <li sec:authorize="hasRole('ADMIN')"><a th:href="@{/admin/listar}" class="nav-item">Listar usuarios</a></li>
                                 <li th:if="${session.usuariosession != null}" class="nav-item dropdown">
                                     <a th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     </a>
@@ -83,6 +82,7 @@
                             <ul>
                                 <li><a th:href="@{/listar}">Listar Usuarios</a></li>    <!-- VER -->
                                 <li><a th:href="@{/inicio/listarCampanias}">Listar Campañas</a></li>
+                                <li><a th:href="@{/inicio/listarPosteos}">Listar Posteos</a></li>
                             </ul>
                         </div>
                     </div>

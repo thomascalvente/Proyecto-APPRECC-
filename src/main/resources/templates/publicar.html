@@ -9,7 +9,7 @@
                 <div class="body_resize">
                     <div class="left3">
                         <div class="resize_bg">
-                            <h2>Publique su nueva Compania:</h2>
+                            <h2>Publique su nueva Campaña:</h2>
                             <p>
                                 Una campaña es un conjunto de actividades o de trabajos que se
                                 realizan en un período de tiempo determinado y están encaminados
@@ -17,19 +17,7 @@
                             </p>
                             <form id="contactform" enctype="multipart/form-data"
                                   th:action="@{/}" method="POST">
-                                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Error</h5>
-                                        <p class="card-text" th:text="${error}"></p>
-                                    </div>    
-                                </div>
-
-                                <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Exito</h5>
-                                        <p class="card-text" th:text="${exito}"></p>
-                                    </div>
-                                </div>
+                                <div th:replace="/fragments/mensajes :: mensaje"></div>
                                 <ol>
                                     <li>
                                         <label for="name" th>Titulo</label>
@@ -42,15 +30,15 @@
                                                   cols="50"
                                                   ></textarea>
                                     </li>
-                                    <div class="flex-fill">
-                                        <select name="idCampania">
+                                     <div class="flex-fill">
+                                        <select>
                                             <option th:each="campania : ${campanias}"
                                                     th:value="${campania.id}"
                                                     th:text="${campania.titulo}"
-                                                    th:selected:="false"
+                                                    th:selected="false"
                                                     />
                                         </select>
-                                    </div>
+                                    </div> 
                                     <li>
                                         <label for="imagen" class="form-label">Imagen</label>
                                         <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />
