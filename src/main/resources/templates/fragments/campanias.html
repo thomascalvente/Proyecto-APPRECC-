@@ -3,7 +3,10 @@
             <h2 th:text="${campania.titulo}">
                 <span th:text="${campania.titulo}"></span>
             </h2>
-            <a th:href="@{/campania/} + ${campania.id}" >
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/campania/} + ${campania.id}" >
+                <img th:src="@{'data:image/jpeg;base64,'+${campania.imagen}}" alt="" width="615" height="400" />
+            </a>
+            <a sec:authorize="hasRole('USER')" th:href="@{/inicio/campania/} + ${campania.id}" >
                 <img th:src="@{'data:image/jpeg;base64,'+${campania.imagen}}" alt="" width="615" height="400" />
             </a>
             <p th:text="${campania.description}" >

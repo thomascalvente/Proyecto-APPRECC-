@@ -22,8 +22,8 @@
                             <th class="lista" th:text="${posteos.titulo}"></th>
                             <th class="lista" th:text="${posteos.cuerpo}"></th>
                             
-                            <th class="lista"><a th:href="@{/posteos/detalle/} + ${posteos.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteos.imagen}}" width="30%"></img></a></th>
-                            
+                            <th sec:authorize="hasRole('ADMIN')" class="lista"><a th:href="@{/admin/posteos/detalle/} + ${posteos.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteos.imagen}}" width="30%"></img></a></th>
+                            <th sec:authorize="hasRole('USER')" class="lista"><a th:href="@{/inicio/posteos/detalle/} + ${posteos.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteos.imagen}}" width="30%"></img></a></th>
                         </tr>
 
 

@@ -6,17 +6,15 @@
                             <h2>Publica tu experiencia:</h2>
                             <!-- Cambiar referencias -->
                             <form id="contactform" enctype="multipart/form-data"
-                                  th:action="@{/}" method="POST">
+                                  th:action="@{/admin/comentario}" method="POST">
                                 <div th:replace="/fragments/mensajes :: mensaje"></div>
+                                <input type="hidden" name="id" th:value="${posteos.id}">
                                 <ol>
                                     <li>
                                         <textarea id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Experiencia"
                                                   rows="6"
                                                   cols="50"
                                                   ></textarea>
-                                    </li>
-                                    <li>                                      
-                                        <input class="form-control" type="file" accept="image/*" id="imagen" name="file"/>
                                     </li>
                                     <li class="buttons">
                                         <input

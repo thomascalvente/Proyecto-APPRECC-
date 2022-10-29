@@ -1,0 +1,28 @@
+<div th:fragment="listaComentarios" class="" th:each="comentario : ${comentarios}">
+    <div class="body">
+        <div class="body_resize">
+            <div class="left3">
+                <div class="resize_bg">
+                    <div class="resize_bg">
+                        <h2 th:text="${comentario.cuerpo}">
+                            <span th:text="${comentario.cuerpo}"></span>
+                        </h2>
+
+                        <div class="clr"></div>
+                        <p th:text="${comentario.cuerpo}" >
+                        </p>
+
+                        <h2>&nbsp;</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -105,8 +105,8 @@ public class PosteoServicio {
     }
     
     @Transactional
-    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, Long id_campania, LocalDate fecha){
-        
+    public void actualizar(Long id, String titulo, String cuerpo, MultipartFile imagen, Long id_campania, LocalDate fecha) throws MiException{
+        validar(titulo, cuerpo);
         Optional<Posteo> respuesta = posteorepositorio.findById(id);
         
         if(respuesta.isPresent()){
