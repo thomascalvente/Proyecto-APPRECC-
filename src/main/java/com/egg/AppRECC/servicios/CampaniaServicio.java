@@ -32,7 +32,7 @@ public class CampaniaServicio {
     
     @Transactional
     public void crearCampania(String titulo, String description, MultipartFile imagen, Date fechaFin) throws MiException{
-        validar(titulo, description);
+        validar(titulo, description, fechaFin);
         
         Campania campania = new Campania();
         
@@ -115,7 +115,7 @@ public class CampaniaServicio {
         }        
     }
     
-    private void validar( String titulo, String description) throws MiException {
+    private void validar( String titulo, String description, Date fechaFin) throws MiException {
 
         
 
@@ -125,6 +125,10 @@ public class CampaniaServicio {
 
         if (description.isEmpty() || description == null) {
             throw new MiException("debe incluir una breve descripción de la campaña");
+        }
+        
+        if (fechaFin == null) {
+            throw new MiException("La fecha no puede ser nula");
         }
 
     }

@@ -13,7 +13,7 @@ and open the template in the editor.
             <div style="text-align: center ">
                 <img src="/img/mundon.png" class="login-register-imagen1" />
             </div>
-            <form id="form" class="login-register-form" enctype="multipart/form-data"
+            <form onsubmit="return validarImagen();" id="form" class="login-register-form" enctype="multipart/form-data"
                   th:action="@{/registro}" method="POST">
 
                 <div class="login-register-apprec">

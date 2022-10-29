@@ -38,17 +38,14 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
-    
+
+    @Autowired
+    private CampaniaServicio campaniaServicio;
 
     @GetMapping("/")
     public String intro(ModelMap modelo) { //localhost:8080/
         return "introduccion.html";
     }
-    
-
-    @Autowired
-    private CampaniaServicio campaniaServicio;
-
 
     @GetMapping("/logueado")
     public String index(ModelMap modelo) { //localhost:8080/
@@ -70,33 +67,11 @@ public class PortalControlador {
         return "nosotros.html";
     }
 
-    @GetMapping("perfil")
-    public String perfil(ModelMap modelo) { //localhost:8080/
-
-        //List<Posteo> posteos = posteoServicio.listarPosteos();
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
-        modelo.addAttribute("posteos", posteos);
-
-        return "perfil.html";
-    }
-
-    @GetMapping("publicar")
-    public String publicar(ModelMap modelo) { //localhost:8080/
-
-        //List<Posteo> posteos = posteoServicio.listarPosteos();
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
-        List<Campania> campanias = campaniaServicio.listarCampaniasBorradas();
-        modelo.addAttribute("posteos", posteos);
-        modelo.addAttribute("campanias", campanias);
-        return "publicarCampania.html";
-    }
-
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String error, ModelMap modelo) { //localhost:8080/   
         if (error != null) {
             modelo.put("error", "Usuario o Contraseña invalidos");
         }
-        
 
         return "login.html";
     }
@@ -106,41 +81,6 @@ public class PortalControlador {
         return "register.html";
     }
 
-    @PostMapping("/")
-    public String Index(@RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo, 
-            @RequestParam("file") MultipartFile imagen, 
-            @RequestParam("idCampania") long idCampania, 
-            ModelMap modelo) {
-        try {
-            posteoServicio.crearPosteo(titulo, cuerpo, imagen, idCampania);
-
-            modelo.put("exito", "la actividad se cargo correctamente");
-
-
-            return "redirect:/";
-        } catch (MiException ex) {
-            modelo.put("error", ex.getMessage());
-            modelo.put("titulo", titulo);
-            modelo.put("cuerpo", cuerpo);
-            return "publicar.html";
-        }
-    }
-
-    @PostMapping("/modificado")
-    public String modificado(@RequestParam("id") Long id, 
-            @RequestParam("titulo") String titulo,
-            @RequestParam("cuerpo") String cuerpo,
-            @RequestParam("idCampania") Long id_Campania,
-            @RequestParam(required = false ,name="file") MultipartFile imagen, 
-            LocalDate fecha, 
-            ModelMap modelo) {
-        posteoServicio.actualizar(id, titulo, cuerpo, imagen, id_Campania, fecha);
-        modelo.put("exito", "la actividad se cargo correctamente");
-        List<Posteo> posteos = posteoServicio.listarPosteos();
-        modelo.addAttribute("posteos", posteos);
-        return "redirect:/";
-    }
 
     @PostMapping("/registro")
     public String registro(
@@ -164,17 +104,4 @@ public class PortalControlador {
         }
     }
 
-    @PostMapping("/buscar")
-    public String buscar(@RequestParam("frase") String frase, ModelMap modelo) {
-        List<Posteo> posteos = posteoServicio.buscarPosteos(frase);
-        modelo.addAttribute("posteos", posteos);
-        return "buscarPosteos.html";
-    }
-    
-    @GetMapping("/listar")
-    public String listar(ModelMap modelo) {
-        List<Usuario> usuarios = usuarioServicio.listarUsuarios();
-        modelo.addAttribute("usuarios", usuarios);
-        return "listarUsuarios.html";
-    }
 }

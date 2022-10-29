@@ -27,3 +27,13 @@ eye2.addEventListener("click", function(){
   const type2 = passwordField2.getAttribute("type") === "password" ? "text" : "password";
   passwordField2.setAttribute("type", type2);
 })
+
+
+function validarImagen() {
+    var fileSize = $('#imagen')[0].files[0].size;
+    var siezekiloByte = parseInt(fileSize / 1024);
+    if (siezekiloByte >  64000) {
+        alert("Imagen muy grande");
+        return false;
+    }
+}

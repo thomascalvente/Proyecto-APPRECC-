@@ -37,12 +37,12 @@
                                         </tr>
                                         <tr>
                                             <td>Foto:</td>
-                                            <td><img  src="/img/mundon.png" width="200" height="250" /></td>
+                                            <td><img th:src="@{'data:image/jpeg;base64,'+${session.usuariosession.imagenPerfil}}" width="70%"></td>
                                             <td><input
                                                     type="submit"
                                                     name="imageField"
                                                     id="imageField"
-                                                    value="Guardar"
+                                                    value="Cambiar"
                                                     class="send"
                                                     /></td>
                                         </tr>
@@ -52,37 +52,19 @@
                             </form>
                         </div>
                     </div>
-                    <div class="right">
-                        <div class="resize_bg">
-                            <h2>
-                                <span>Menu</span>
-                            </h2>
-                            <ul>
-                                <li><a th:href="@{/}" class="nav-item">Inicio</a></li>    <!-- VER SELECCION MARCADA -->
-
-                                <li><a th:href="@{/nosotros}" class="nav-item">Nosotros</a></li>
-                                <li th:if="${session.usuariosession == null}"><a th:href="@{/login}" class="nav-item">Ingresar</a></li>
-                                <li th:if="${session.usuariosession != null}" class="nav-item dropdown">
-                                    <a th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" th:href="@{/publicar}">Publicar</a>
-                                        <a class="dropdown-item" th:href="@{/perfil}">Perfil</a>
-                                        <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <div class="right">
                         <div class="resize_bg">
                             <h2>
                                 <span>Tablas:</span>
                             </h2>
                             <ul>
-                                <li><a th:href="@{/listar}">Listar Usuarios</a></li>    <!-- VER -->
-                                <li><a th:href="@{/inicio/listarCampanias}">Listar Campañas</a></li>
-                                <li><a th:href="@{/inicio/listarPosteos}">Listar Posteos</a></li>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listar}">Listar usuarios</a></li>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listarCampanias}">Listar campañas</a></li>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listarPosteos}">Listar posteos</a></li>
+                                <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarCampanias}">Listar campañas</a></li>
+                                <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarPosteos}">Listar posteos</a></li>
+                                
                             </ul>
                         </div>
                     </div>
