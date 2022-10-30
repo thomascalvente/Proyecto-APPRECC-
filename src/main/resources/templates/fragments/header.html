@@ -13,24 +13,29 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a th:if="${session.usuariosession != null}" th:href="@{/logueado}" class="nav-item">Inicio</a></li>    <!-- VER SELECCION MARCADA -->
+                        <li><a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/dashboard}" class="nav-item">Inicio</a></li>
+                        <li><a sec:authorize="hasRole('USER')" th:href="@{/inicio}" class="nav-item">Inicio</a></li>    <!-- VER SELECCION MARCADA -->
                         <li><a th:if="${session.usuariosession == null}" th:href="@{/}" class="nav-item">Inicio</a></li>
                         <li><a th:href="@{/nosotros}" class="nav-item">Nosotros</a></li>
                         <li th:if="${session.usuariosession == null}"><a th:href="@{/login}" class="nav-item">Ingresar</a></li>
-                        <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
-                            <a th:href="@{/admin/listar}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
+                        <li class="nav-item dropdown">
+                            <a th:if="${session.usuariosession != null}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" th:href="@{/listar}">Usuarios</a>
-                                <a class="dropdown-item" th:href="@{/inicio/listarCampanias}">Campañas</a>
-                                <a class="dropdown-item" th:href="@{/inicio/listarPosteos}">Posteos</a>
+                                <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{/admin/listar}">Usuarios</a>
+                                <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{/admin/listarCampanias}">Campañas</a>
+                                <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{/admin/listarPosteos}">Posteos</a>
+                                <a sec:authorize="hasRole('USER')" class="dropdown-item" th:href="@{/inicio/listarCampanias}">Campañas</a>
+                                <a sec:authorize="hasRole('USER')" class="dropdown-item" th:href="@{/inicio/listarPosteos}">Posteos</a>
                             </div>
                         </li>
                         <li th:if="${session.usuariosession != null}" class="nav-item dropdown">
                             <a th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" th:href="@{/publicar}">Publicar</a>
-                                <a class="dropdown-item" th:href="@{/perfil}">Perfil</a>
+                                <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{/admin/publicar}">Publicar</a>
+                                <a sec:authorize="hasRole('USER')" class="dropdown-item" th:href="@{/inicio/publicar}">Publicar</a>
+                                <a sec:authorize="hasRole('ADMIN')" class="dropdown-item" th:href="@{/admin/perfil}">Perfil</a>
+                                <a sec:authorize="hasRole('USER')" class="dropdown-item" th:href="@{/inicio/perfil}">Perfil</a>
                                 <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
                             </div>
                         </li>

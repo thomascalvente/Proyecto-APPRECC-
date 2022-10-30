@@ -19,7 +19,7 @@ and open the template in the editor.
                         <strong
                             class="d-line-block mb-2 text-success"
                             th:text="${posteos.titulo}"
-                            ></strong>
+                        ></strong>                       
 
                         <div
                             class="d-flex flex-wrap align-items-start justify-content-center justify-content-lg-start"
@@ -43,7 +43,7 @@ and open the template in the editor.
                             </div>
                             <a sec:authorize="hasRole('ADMIN')"
                                class="btn btn-success"
-                               th:href="@{/posteos/modificar/}+${posteos.id}"
+                               th:href="@{/admin/posteos/modificar/}+${posteos.id}"
                                >
                                 Modificar
                             </a>
@@ -74,17 +74,29 @@ and open the template in the editor.
                                     </div>
                                     <div class="modal-footer">
                                         <a type= "button" class= "btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cerrar</a>
-                                        <a type= "button" class= "btn btn-primary" th:href="@{/posteos/borrado/}+${posteos.id}">Borrar posteo</a>
+                                        <a type= "button" class= "btn btn-primary" th:href="@{/admin/posteos/borrado/}+${posteos.id}">Borrar posteo</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <section class="text-center container">
+                        <section sec:authorize="hasRole('ADMIN')" class="text-center container">
                             <div class="row mt-3">
                                 <div class="divVolver">
                                     <a
-                                        th:href="@{/}"
+                                        th:href="@{/admin/dashboard}"
+                                        class="btn btn-secondary my-2 botonVolver botones"
+                                        >
+                                        Volver
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section sec:authorize="hasRole('USER')" class="text-center container">
+                            <div class="row mt-3">
+                                <div class="divVolver">
+                                    <a
+                                        th:href="@{/inicio}"
                                         class="btn btn-secondary my-2 botonVolver botones"
                                         >
                                         Volver
@@ -97,6 +109,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div th:replace="/fragments/comentarios :: publicaciones"></div>
+            <div th:replace="/fragments/listaComentarios :: listaComentarios"></div>
         </div>
         <footer th:replace="/fragments/footer :: div"></footer>
     </body>
