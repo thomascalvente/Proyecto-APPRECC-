@@ -1,4 +1,8 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html 
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
     <head th:replace= "/fragments/head :: head" ></head>
     <!-- INICIO -->
     <body >
@@ -29,7 +33,9 @@
                             <th class="" th:text="${usuario.rol}"></th>
                             <th><a type="button" class="btn btn-success" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal'+*{usuario.id}">Modificar</a></th>
                             <th><a type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#exampleModal2'+*{usuario.id}">Borrar</a></th>
-
+                        </tr>
+                    </tbody>
+                </table>
                             <div class="modal fade" th:id="*{'exampleModal'+{usuario.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog  modal-dialog-centered">
                                     <div class="modal-content">
@@ -74,11 +80,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </tr>
-                    </tbody>
-                </table>
-
-
             </div>
 
         </div>

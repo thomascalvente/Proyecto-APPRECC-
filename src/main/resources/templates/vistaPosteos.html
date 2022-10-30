@@ -1,5 +1,9 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head th:replace= "/fragments/head :: head" ></head>
+<html  
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+     <head th:replace= "/fragments/head :: head" ></head>
     <!-- INICIO -->
     <body>
 
@@ -13,7 +17,7 @@
                         <a class="btn btn-outline-success my-2 my-sm-0" th:href="@{/posteos/publicarPosteos/} + ${campania.id}">Publicar</a>
                        
                         <form th:action="@{/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
+                             <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search"></input>
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
                     </div>
