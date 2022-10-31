@@ -464,7 +464,7 @@ h1 small {
     border:1px solid #c0c0c0;
     margin:2px 0;
     padding:5px 2px;
-    height:16px;
+    height: 31px;
     background:#fff;
     float:left;
 }
@@ -545,7 +545,6 @@ p.response {
     background-color: #6F984C;
     font-family: 'Proza Libre';
     display: flex;
-    align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
@@ -649,7 +648,7 @@ h2 {
     width:969px;
     padding:3rem;
     margin: auto;
-    background: #c0c0c0;
+    background-color: rgba(248,248,255,0.5);
     text-align: center;
 }
 

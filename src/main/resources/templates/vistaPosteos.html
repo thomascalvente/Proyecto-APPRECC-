@@ -1,5 +1,9 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head th:replace= "/fragments/head :: head" ></head>
+<html  
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+     <head th:replace= "/fragments/head :: head" ></head>
     <!-- INICIO -->
     <body>
 
@@ -11,13 +15,14 @@
                     <div class="left2 navbar">
                         <a sec:authorize="hasRole('ADMIN')" class="btn btn-outline-success" th:href="@{/admin/posteos/publicarPosteos/} + ${campania.id}">Publicar</a>
                         <a sec:authorize="hasRole('USER')" class="btn btn-outline-success" th:href="@{/inicio/posteos/publicarPosteos/} + ${campania.id}">Publicar</a>
-                        
+
                         <form sec:authorize="hasRole('ADMIN')" th:action="@{/admin/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
                             <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
                         <form sec:authorize="hasRole('USER')" th:action="@{/inicio/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
                             <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
+
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                         </form>
                     </div>

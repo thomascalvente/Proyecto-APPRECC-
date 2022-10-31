@@ -1,5 +1,9 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head th:replace= "/fragments/head :: head" ></head>
+<html  
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+     <head th:replace= "/fragments/head :: head" ></head>
     <!-- PUBLICAR -->
     <body>
         <header th:replace= "/fragments/header :: header" ></header>
@@ -13,6 +17,7 @@
                             <p>
                                 Publique su Experiencia:
                             </p>
+
                             <form sec:authorize="hasRole('ADMIN')" id="contactform" enctype="multipart/form-data"
                                   th:action="@{/admin/posteos}" method="POST">
                                 <input type="hidden" name="id" th:value="${campania.id}">
@@ -55,7 +60,7 @@
                                 <div th:replace="/fragments/mensajes :: mensaje"></div>
                                 <ol>
                                     <li>
-                                        <label for="name" th>Titulo</label>
+                                        <label for="name">Titulo</label>
                                         <input type="text" class="text" name="titulo" th:value="*{titulo}" placeholder="Titulo de la actividad" />
                                     </li>
                                     <li>
@@ -65,8 +70,10 @@
                                                   cols="50"
                                                   ></textarea>
                                     </li>
+
                                      <div class="flex-fill">
                                     </div> 
+
                                     <li>
                                         <label for="imagen" class="form-label">Imagen</label>
                                         <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />
@@ -84,6 +91,15 @@
                                         <div class="clr"></div>
                                     </li>
                                 </ol>
+                                <div class="flex-fill">
+                                        <select>
+                                            <option th:each="campania : ${campanias}"
+                                                    th:value="${campania.id}"
+                                                    th:text="${campania.titulo}"
+                                                    th:selected="false"
+                                                    />
+                                        </select>
+                                    </div>
                             </form>
                         </div>
                     </div>
