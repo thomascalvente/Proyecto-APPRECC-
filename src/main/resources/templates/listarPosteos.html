@@ -22,16 +22,19 @@
                             <th class="" scope="col">Titulo</th>
                             <th class="" scope="col">Cuerpo</th>
                             <th class="" scope="col">Imagen</th>
+                            <th class="" scope="col">Campania</th>
+                            <th class="" scope="col">Borrado</th>
                         </tr>
                     </thead>
-                    <tbody class="" th:each="posteos : ${posteos}">
+                    <tbody class="" th:each="posteo : ${posteos}">
                         <tr>
                             
-                            <th class="lista" th:text="${posteos.titulo}"></th>
-                            <th class="lista" th:text="${posteos.cuerpo}"></th>
+                            <th class="lista" th:text="${posteo.titulo}"></th>
+                            <th class="lista" th:text="${posteo.cuerpo}"></th>
                             
-                            <th class="lista"><a th:href="@{/posteos/detalle/} + ${posteos.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteos.imagen}}" width="70%"></img></a></th>
-                            
+                            <th class="lista"><a th:href="@{/posteos/detalle/} + ${posteo.id}"><img th:src="@{'data:image/jpeg;base64,'+${posteo.imagen}}" width="70%"></img></a></th>
+                            <th class="lista" th:text="${posteo.id_campania}"></th>
+                            <th class="lista" th:text="${posteo.borrado}"></th>
                         </tr>
                     </tbody>
                 </table>

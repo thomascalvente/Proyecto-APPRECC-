@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html 
-     xmlns="http://www.w3.org/1999/xhtml" 
-     xmlns:th="http://www.thymeleaf.org" 
-     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-     
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace= "/fragments/head :: head" ></head>
     <body>
+        <header tr:replace="/fragments/header :: header" ></header>
+
         <div class="formulario2">
             <form enctype="multipart/form-data"
-                  th:action="@{/modificado}" method="POST">
+                  th:action="@{/admin/modificado}" method="POST">
 
                 <input type="hidden" name="id" th:value="${posteos.id}">
+                <input type="hidden" name="id_campania" th:value="${posteos.id_campania}">
 
                 <div th:replace="/fragments/mensajes :: mensaje"></div>
 
@@ -21,19 +25,10 @@
                     <input type="text" class="form-control" id="exampleFormControlInput1" name="titulo" th:value="*{titulo}" placeholder="Titulo de la actividad">
                 </div>
 
-                <div class="flex-fill">
-                    <select name="idCampania">
-                        <option th:each="campania : ${campanias}"
-                                th:value="${campania.id}"
-                                th:text="${campania.titulo}"
-                                th:selected="false"
-                                />
-                    </select>
-                </div>
 
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Cuerpo</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Cuerpo"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="cuerpo" th:inline="text" placeholder="Cuerpo">[[${Cuerpo}]]</textarea>
                 </div>
 
                 <div class="mb-3">
