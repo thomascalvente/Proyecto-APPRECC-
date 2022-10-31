@@ -206,9 +206,10 @@ public class AdminControlador {
             @RequestParam("cuerpo") String cuerpo,
             @RequestParam(required = false, name = "file") MultipartFile imagen,
             LocalDate fecha,
+            @RequestParam("id_campania") Long id_campania,
             ModelMap modelo) throws MiException {
         try {
-            posteoServicio.actualizar(id, titulo, cuerpo, imagen, id, fecha);
+            posteoServicio.actualizar(id, titulo, cuerpo, imagen, id_campania, fecha);
             modelo.put("exito", "la actividad se cargo correctamente");
             List<Posteo> posteos = posteoServicio.listarPosteos();
             modelo.addAttribute("posteos", posteos);
