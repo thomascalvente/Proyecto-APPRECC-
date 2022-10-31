@@ -84,7 +84,7 @@ and open the template in the editor.
                             <div class="row mt-3">
                                 <div class="divVolver">
                                     <a
-                                        th:href="@{/admin/dashboard}"
+                                        th:href="@{/admin/campania/}+${posteos.id_campania}"
                                         class="btn btn-secondary my-2 botonVolver botones"
                                         >
                                         Volver
@@ -96,7 +96,7 @@ and open the template in the editor.
                             <div class="row mt-3">
                                 <div class="divVolver">
                                     <a
-                                        th:href="@{/inicio}"
+                                        th:href="@{/campania/}+${posteos.id_campania}"
                                         class="btn btn-secondary my-2 botonVolver botones"
                                         >
                                         Volver

@@ -3,7 +3,7 @@
                 <div class="body_resize">
                     <div class="left3">
                         <div class="resize_bg">
-                            <h2>Publica tu experiencia:</h2>
+                            <h2>Comentarios:</h2>
                             <!-- Cambiar referencias -->
                             <form id="contactform" enctype="multipart/form-data"
                                   th:action="@{/admin/comentario}" method="POST">
@@ -11,7 +11,7 @@
                                 <input type="hidden" name="id" th:value="${posteos.id}">
                                 <ol>
                                     <li>
-                                        <textarea id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Experiencia"
+                                        <textarea id="exampleFormControlTextarea1" name="cuerpo" th:value="*{cuerpo}" placeholder="Tu Opinion"
                                                   rows="6"
                                                   cols="50"
                                                   ></textarea>

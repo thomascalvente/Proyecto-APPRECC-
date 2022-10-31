@@ -15,44 +15,38 @@
                                     <tbody>
                                         <tr>
                                             <td>Nombre:</td>
-                                            <td> <input id="name" th:value="*{session.usuariosession.nombre}"/></td>
-                                            <td><input
-                                                    type="submit"
-                                                    name="imageField"
-                                                    id="imageField"
-                                                    value="Guardar"
-                                                    class="send"
-                                                    /></td>
+                                            <td> <input type="text" name="nombre" id="name" th:value="*{session.usuariosession.nombre}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
-                                            <td><input id="email" th:value="*{session.usuariosession.email}"/></td>
-                                            <td><input
-                                                    type="submit"
-                                                    name="imageField"
-                                                    id="imageField"
-                                                    value="Guardar"
-                                                    class="send"
-                                                    /></td>
+                                            <td><input type="email" name="email" id="email" th:value="*{session.usuariosession.email}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Foto:</td>
-                                            <td><img th:src="@{'data:image/jpeg;base64,'+${session.usuariosession.imagenPerfil}}" width="70%"></td>
-                                            <td><input
-                                                    type="submit"
-                                                    name="imageField"
-                                                    id="imageField"
-                                                    value="Cambiar"
-                                                    class="send"
-                                                    /></td>
+                                            <td><img class="imgPerfil" th:src="@{'data:image/jpeg;base64,'+${session.usuariosession.imagenPerfil}}" width="30%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contraseña:</td>
+                                            <td><input type="password" name="password" id="password" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Repita Contraseña:</td>
+                                            <td><input type="password2" name="password2" id="password2" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <input
+                                    type="submit"
+                                    name="imageField"
+                                    id="imageField"
+                                    value="Cambiar"
+                                    class="send"
+                                    />
                                 <div class="clr"></div>
                             </form>
                         </div>
                     </div>
-                    
+
                     <div class="right">
                         <div class="resize_bg">
                             <h2>
@@ -64,7 +58,7 @@
                                 <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listarPosteos}">Listar posteos</a></li>
                                 <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarCampanias}">Listar campañas</a></li>
                                 <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarPosteos}">Listar posteos</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
