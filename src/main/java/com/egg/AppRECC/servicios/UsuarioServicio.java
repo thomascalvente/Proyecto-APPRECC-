@@ -107,14 +107,16 @@ public class UsuarioServicio implements UserDetailsService {
     String id,
     String nombre,
     String email,
+    String imagen, //agregado
     String password
-  ) {
+  )throws MiException{ //miException agregado
     Optional<Usuario> respuesta = repo.findById(id);
 
     if (respuesta.isPresent()) {
       Usuario usuario = respuesta.get();
       usuario.setNombre(nombre);
       usuario.setEmail(email);
+      usuario.setImagenPerfil(imagen); //agregado
       usuario.setPassword(new BCryptPasswordEncoder().encode(password));
       usuario.setActivo(usuario.getActivo() + 1);
 

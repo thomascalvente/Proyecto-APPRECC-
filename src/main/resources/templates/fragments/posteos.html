@@ -4,11 +4,11 @@
             <h2 th:text="${posteo.titulo}">
                 <span th:text="${posteo.titulo}"></span>
             </h2>
-            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/posteos/detalle/} + ${campania.id}" >
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/posteos/detalle/} + ${posteo.id}" >
                 <img th:src="@{'data:image/jpeg;base64,'+${posteo.imagen}}" alt="" width="615" height="400" />
             </a>
             
-            <a sec:authorize="hasRole('USER')" th:href="@{/inicio/posteos/detalle/} + ${campania.id}" >
+            <a sec:authorize="hasRole('USER')" th:href="@{/inicio/posteos/detalle/} + ${posteo.id}" >
                 <img th:src="@{'data:image/jpeg;base64,'+${posteo.imagen}}" alt="" width="615" height="400" />
             </a>
             <div class="clr"></div>

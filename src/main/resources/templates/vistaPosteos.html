@@ -15,7 +15,6 @@
                     <div class="left2 navbar">
                         <a sec:authorize="hasRole('ADMIN')" class="btn btn-outline-success" th:href="@{/admin/posteos/publicarPosteos/} + ${campania.id}">Publicar</a>
                         <a sec:authorize="hasRole('USER')" class="btn btn-outline-success" th:href="@{/inicio/posteos/publicarPosteos/} + ${campania.id}">Publicar</a>
-                       
 
                         <form sec:authorize="hasRole('ADMIN')" th:action="@{/admin/buscar}" method="post" class="form-inline left1 my-2 my-lg-0">
                             <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">

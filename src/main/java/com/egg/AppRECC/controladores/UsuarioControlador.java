@@ -202,4 +202,21 @@ public class UsuarioControlador {
         }
     }
 
+//    @PostMapping("/modificarUsuario")
+//    public String modificarUser(@RequestParam("id") Long id,
+//            @RequestParam("nombre") String nombre,
+//            @RequestParam("email") String email,
+//            @RequestParam(required = false, name = "file") MultipartFile imagen,
+//            @RequestParam("password") String password,
+//            ModelMap modelo) throws MiException {
+//        try {
+//            usuarioServicio.actualizar(id, nombre, email, imagen, password);
+//            modelo.put("exito", "la actividad se cargo correctamente"); 
+//            return "redirect:/perfil";
+//        } catch (MiException e) {
+//            modelo.put("error", e.getMessage());
+//            return "perfil.html";
+//        }
+//
+//    }
 }

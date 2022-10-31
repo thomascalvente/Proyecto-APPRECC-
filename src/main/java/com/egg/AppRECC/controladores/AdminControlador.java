@@ -88,7 +88,7 @@ public class AdminControlador {
 
     @GetMapping("/listarPosteos")
     public String listarPosteos(ModelMap modelo) {
-        List<Posteo> posteos = posteoServicio.listarPosteosBorrados();
+        List<Posteo> posteos = posteoServicio.listarPosteos();
         modelo.addAttribute("posteos", posteos);
         return "listarPosteos.html";
     }
@@ -191,7 +191,7 @@ public class AdminControlador {
 
             modelo.put("exito", "la actividad se cargo correctamente");
 
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin/campania/"+id;
         } catch (MiException ex) {
             modelo.put("error", ex.getMessage());
             modelo.put("titulo", titulo);
@@ -206,13 +206,14 @@ public class AdminControlador {
             @RequestParam("cuerpo") String cuerpo,
             @RequestParam(required = false, name = "file") MultipartFile imagen,
             LocalDate fecha,
+            @RequestParam("id_campania") Long id_campania,
             ModelMap modelo) throws MiException {
         try {
-            posteoServicio.actualizar(id, titulo, cuerpo, imagen, id, fecha);
+            posteoServicio.actualizar(id, titulo, cuerpo, imagen, id_campania, fecha);
             modelo.put("exito", "la actividad se cargo correctamente");
             List<Posteo> posteos = posteoServicio.listarPosteos();
             modelo.addAttribute("posteos", posteos);
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin/campania/"+id; 
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
             modelo.put("titulo", titulo);
@@ -262,7 +263,7 @@ public class AdminControlador {
             modelo.put("exito", "El comentario se creo correctamente");
             List<Comentario> comentarios = comentarioServicio.listarComentariosPorIdPosteos(id);
             modelo.addAttribute("comentarios", comentarios);
-            return "redirect:/admin/dashboard";
+            return "redirect:/admin/posteos/detalle/"+id; //admin/posteos/detalle/{id}
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
             modelo.addAttribute("cuerpo", cuerpo);
