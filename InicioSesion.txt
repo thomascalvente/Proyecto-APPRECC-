@@ -1,0 +1,32 @@
+INCIO DE SESION:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IniciarSesion</title>
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <form id="form" class="form">
+        <h2>Iniciar Sesion</h2>
+        <div class="form-control">
+          <input type="text" name="Email" id="email" placeholder="Email" />
+        </div>
+        <div class="form-control">
+          <input
+            type="text"
+            name="Contraseña"
+            id="password"
+            placeholder="Contraseña"
+          />
+        </div>
+        <button>Entrar</button>
+        <div>
+          <a href="">¿Olvidaste tu contraseña?</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
