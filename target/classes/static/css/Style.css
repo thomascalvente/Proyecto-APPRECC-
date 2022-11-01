@@ -16,7 +16,7 @@ html {
 
 .lista{
     text-align: center;
-    width: 33%;
+    width: 25%;
 }
 
 .password-container{
@@ -238,9 +238,16 @@ h1 small {
 }
 .body img {
     float: bottom;
-    margin:5px;
+    margin:10px;
     padding:0;
 }
+
+.imgPerfil{
+    border-radius: 40%;
+    border-color: #628ef5;
+    border-style: groove;
+}
+
 .body a {
     color:#ea5d00;
     text-decoration:underline;
@@ -274,7 +281,7 @@ h1 small {
 .left4{
     padding: 0;
     margin:0 auto;
-    background: #c0c0c0;
+    background-color: rgba(248,248,255,0.5);
     text-align: center;
     width: 969px;
 }
@@ -474,7 +481,7 @@ h1 small {
     margin:2px 0;
     padding:2px;
     background:#fff;
-    float:left;
+    float:none;
 }
 #contactform li.buttons input {
     border:1px solid #000;
@@ -653,7 +660,7 @@ h2 {
 }
 
 .botonRegresar{
-    width: 50%;
+    width: 66%;
     margin-left: 65px;
 }
 
@@ -666,4 +673,16 @@ h2 {
 }
 .vive{
     color: black;
+}
+
+.apprecc-register{
+    width: 50%;
+    margin-left: 65px;
+}
+
+li img{
+    border-radius: 50%;
+    border-color: #6F984C;
+    border-width: 2px;
+    border-style: solid;
 }
