@@ -1,0 +1,89 @@
+<html 
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- NOSOTROS -->
+    <body>
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body">
+                <div class="body_resize">
+                    <div class="left">
+                        <div class="resize_bg">
+                            <h2>
+                                ¿Quienes somos?
+                            </h2>
+                            <h4 id="list-item-1">Crisis ambiental</h4>
+                            <p>Hoy en día vivimos la más grave crisis ambiental en la historia de la humanidad: calentamiento global, pérdida de la biodiversidad, contaminación de aire, agua y suelo, cambio climático mundial, desertización y otros complejos problemas que afectan el medio ambiente (generación de desechos tóxicos, uso de energías contaminantes, sobreexplotación de recursos no renovables, entre otros). Estos problemas parecen ser formas irreversibles de la destrucción de la naturaleza y aunque tienen su origen de fondo en los modelos de desarrollo progresista de las modernas sociedades occidentales, son también consecuencia de acciones y actitudes personales irresponsables.</p>
+                            <h4 id="list-item-2">Campaña de conciencia ambiental</h4>
+                            <p>Ante esta problemática, la hemos creado la CAMPAÑA DE CONCIENCIA AMBIENTAL, proyecto que busca desarrollar una mayor concientización colectiva y fortalecer la participación comunitaria respecto a la responsabilidad que todas las personas compartimos en torno a la protección del ambiente, contribuyendo activamente a su mejora a través de prácticas y estrategias que puedan ser compatibles con la conservación y el uso sustentable del ambiente.</p>
+                            <h4 id="list-item-3">En que se basa?</h4>
+                            <p>Esta campaña se basa en soluciones tangibles y objetivas que priorizan el reciclaje y los hábitos de consumo de las personas. Ello tiene como objetivo poner al alcance del perceptor información de fácil entendimiento que desencadene en tareas y medidas sencillas, viables y reales para procurar la conservación y cuidado de nuestro medio ambiente y recursos naturales y que mejor lugar en un sitio web donde cada persona pueda participar en diferentes campañas compartiendo así sus aportes de contribución al cuidado del medio ambiente; publicando diversos testimonios y experiencias.</p>
+                            <h4 id="list-item-4">La propuesta</h4>
+                            <p>Las acciones y medidas propuestas por la CAMPAÑA DE CONCIENCIA AMBIENTAL se fundamentan en un mayor conocimiento de los aspectos relacionados con la cultura del ambiente y la urgente necesidad de concientizar, orientar e involucrar de manera directa a la población en general en las tareas de recuperación y cuidados ambientales –en mayor grado a las generaciones jóvenes. </p>
+                            <h4 id="list-item-5">Un futuro mejor</h4>
+                            <p>Con esta finalidad, la CAMPAÑA DE CONCIENCIA AMBIENTAL busca que todas sus estrategias sirvan para disminuir y mitigar la grave crisis ambiental que vivimos y la posibilidad de que esta nueva actitud cambie significativamente la forma de relacionarnos con el ambiente y que sus resultados generen mejores condiciones biológicas, culturales, económicas y sociales en el presente y en el futuro.</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="resize_bg">
+                            <h2>Contactanos!</h2>
+                            <ul class="sponsors">
+                                <li class="sponsors"><a href="#">guztorti@gmail.com</a><br />
+                                    Gustavo Torti</li>
+                                <li class="sponsors"><a href="#">thomycalvente@gmail.com</a><br />
+                                    Thomas Calvente</li>
+                                <li class="sponsors"><a href="#">romano.ml.78@gmail.com</a><br />
+                                    Laura Romano</li>
+                                <li class="sponsors"><a href="#">ygbg.0511@gmail.com</a><br />
+                                    Ysaac Briceño</li>
+                                <li class="sponsors"><a href="#">reartes17diego@gmail.com</a><br />
+                                    Diego Reartes</li>
+                                <li class="sponsors"><a href="#">torresmarina983@gmail.com</a><br />
+                                    Marina Torres</li>
+                                <li class="sponsors"><a href="#">jpmolfesa@gmail.com</a><br />
+                                    Juan Pablo Molfesa</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="resize_bg">
+                            <h2>
+                                <span>Menu</span>
+                            </h2>
+                            <ul>
+                                <li><a th:href="@{/}" class="nav-item">Inicio</a></li>    <!-- VER SELECCION MARCADA -->
+
+                                <li><a th:href="@{/nosotros}" class="nav-item">Nosotros</a></li>
+                                <li th:if="${session.usuariosession == null}"><a th:href="@{/login}" class="nav-item">Ingresar</a></li>
+                                <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
+                                    <a th:href="@{/admin/listar}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" th:href="@{/listar}">Usuarios</a>
+                                        <a class="dropdown-item" th:href="@{/listarCampanias}">Campañas</a>
+                                        <a class="dropdown-item" th:href="@{/listarPosteos}">Posteos</a>
+                                    </div>
+                                </li>
+                                <li th:if="${session.usuariosession != null}" class="nav-item dropdown">
+                                    <a th:text=" 'Hola '+${session.usuariosession.nombre} " class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" th:href="@{/publicar}">Publicar</a>
+                                        <a class="dropdown-item" th:href="@{/perfil}">Perfil</a>
+                                        <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2>&nbsp;</h2>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <footer th:replace="/fragments/footer :: div"></footer>
+    </body>
+</html>

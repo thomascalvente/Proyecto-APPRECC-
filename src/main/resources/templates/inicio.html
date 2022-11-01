@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- INICIO -->
+    <body>
+
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body">
+                <div class="body_resize2">
+                    <div class="left2 navbar">
+                        <h2>Campañas:</h2>
+                        <form sec:authorize="hasRole('ADMIN')" th:action="@{/admin/buscarCampanias}" method="post" class="form-inline left1 my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                        <form sec:authorize="hasRole('USER')" th:action="@{/inicio/buscarCampanias}" method="post" class="form-inline left1 my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="frase" th:value="*{frase}" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                    <div th:replace="/fragments/campanias :: div"></div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+
+        </div>
+        <div th:replace="/fragments/carrusel :: carrusel"></div>
+        <footer th:replace="/fragments/footer :: div"></footer>
+    </body>
+</html>
+

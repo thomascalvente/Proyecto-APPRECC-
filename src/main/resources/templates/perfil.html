@@ -1,0 +1,75 @@
+<html 
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+    <head th:replace= "/fragments/head :: head" ></head>
+    <!-- PUBLICAR -->
+    <body>
+        <header th:replace= "/fragments/header :: header" ></header>
+        <div class="main">
+            <div th:replace="/fragments/cartel :: div"></div>
+            <div class="body">
+                <div class="body_resize">
+                    <div class="left">
+                        <div class="resize_bg">
+                            <h2>Perfil:</h2>
+                            <form action="#" method="post" id="contactform">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Nombre:</td>
+                                            <td> <input type="text" name="nombre" id="name" th:value="*{session.usuariosession.nombre}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td><input type="email" name="email" id="email" th:value="*{session.usuariosession.email}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Foto:</td>
+                                            <td><img class="imgPerfil" th:src="@{'data:image/jpeg;base64,'+${session.usuariosession.imagenPerfil}}" width="30%"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contraseña:</td>
+                                            <td><input type="password" name="password" id="password" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Repita Contraseña:</td>
+                                            <td><input type="password2" name="password2" id="password2" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <input
+                                    type="submit"
+                                    name="imageField"
+                                    id="imageField"
+                                    value="Cambiar"
+                                    class="send"
+                                    />
+                                <div class="clr"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="resize_bg">
+                            <h2>
+                                <span>Tablas:</span>
+                            </h2>
+                            <ul>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listar}">Listar usuarios</a></li>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listarCampanias}">Listar campañas</a></li>
+                                <li sec:authorize="hasRole('ADMIN')"><a class="dropdown-item" th:href="@{/admin/listarPosteos}">Listar posteos</a></li>
+                                <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarCampanias}">Listar campañas</a></li>
+                                <li sec:authorize="hasRole('USER')"><a class="dropdown-item" th:href="@{/inicio/listarPosteos}">Listar posteos</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="/fragments/footer :: div"></footer>
+    </body>
+</html>

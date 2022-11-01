@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html 
+     xmlns="http://www.w3.org/1999/xhtml" 
+     xmlns:th="http://www.thymeleaf.org" 
+     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+     
+     <head th:replace= "/fragments/head :: head" ></head>
+    <body class="login-register-body">
+
+        <main>
+            <div th:replace="/fragments/mensajes :: mensaje"></div>
+            <div style="text-align: center ">
+                <img src="/img/mundon.png" class="login-register-imagen1" />
+            </div>
+            <form onsubmit="return validarImagen();" id="form" class="login-register-form" enctype="multipart/form-data"
+                  th:action="@{/registro}" method="POST">
+
+                <div class="login-register-apprec">
+                    <div class="apprecc-register">
+                        <h1 >
+                            <span>AppReCC</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="text"
+                        name="nombre" th:value="*{nombre}" placeholder="Nombre"
+                        />
+
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="email"
+                        name="email" th:value="*{email}" placeholder="Email"
+                        />
+
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="password"
+                        id="password"
+                        name="password" th:value="*{password}" placeholder="Contraseña"
+                        />
+                    <i class="fa-solid fa-eye" id="eye"></i>
+
+                </div>
+                <div class="login-register-form-control">
+                    <input
+                        class="login-register-letra-tamanio"
+                        type="password"
+                        id="password2"
+                        placeholder="Repetir contraseña"
+                        name="password2" th:value="*{password2}" 
+                        />
+                    <i class="fa-solid fa-eye" id="eye2"></i>
+
+                </div>
+
+                <div class="login-register-form-control">
+                    <label for="imagen" class="form-label">Imagen de Perfil</label>
+                    <input class="form-control" type="file" accept="image/*" id="imagen" name="file" />
+                </div>
+
+                <button name="boton" type="submit">Registrarse</button>
+                <a class="btn btn-secondary botonRegresar" th:href="@{/}">Volver a Inicio</a>
+            </form>
+            <p align="center" class="mt-5 mb-3 text-muted">&copy;2022</p>
+        </main>
+
+        <script src="/js/script.js"></script>
+    </body>
+</html>
